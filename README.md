@@ -1,6 +1,6 @@
 # Coding-Cli-nodejs
 
-![Building](https://img.shields.io/travis/USER/REPO.svg) ![MIT](https://img.shields.io/dub/l/vibe-d.svg)
+![npm](https://img.shields.io/npm/v/npm.svg) ![MIT](https://img.shields.io/dub/l/vibe-d.svg)
 
 A simple command-line tool for coding.net by nodejs
 
