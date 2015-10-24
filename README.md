@@ -1,25 +1,26 @@
-帮助(help) - 列出所有命令、选项及说明
-登录(login) - 使用OAuth，跳转到网页进行登录获取token
-注销(logout) - 注销当前用户
+# Coding-Cli-nodejs
 
-# 项目(project)
+A simple command-line tool for coding.net by nodejs
 
-列表(list|ls) - 列出用户的项目
+```
+debian:~/Coding-Cli$ ./coding --help
 
-# 任务(task)
+  Usage: coding [options] [command]
 
-列表(list|ls) - 列出用户未完成的任务列表
-新增(new) - 新增任务
-更新(updata|up) - 更新任务
-关闭(close) - 关闭任务
 
-# 冒泡(pp)
+  Commands:
 
-列表(list|ls) - 列出最新冒泡列表
-新增(new) - 新增冒泡
-评论(reply) - 评论冒泡
-点赞(like) - 冒泡点赞
+    login [options]        
+    logout|clear             Logout and clear local data.
+    info                     Prints out current user info
+    project [options]      
+    task [options] <projec>
 
-# 部署(deploy)
+  A simple command-line tool for coding.net by nodejs
 
-生成公钥(key)
+  Options:
+
+    -h, --help     output usage information
+    -V, --version  output the version number
+
+```
