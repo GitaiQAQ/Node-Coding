@@ -30,5 +30,3 @@ node_modules
 # Sublime Project files
 *.sublime-project
 *.sublime-workspace
-
-cli-coding

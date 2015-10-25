@@ -1,0 +1,23 @@
+{
+  "name": "node-coding",
+  "version": "1.0.0",
+  "description": "Coding.net API Nodejs library.",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "mocha tests"
+  },
+  "keywords": [
+    "api",
+    "coding.net",
+    "lib"
+  ],
+  "author": "gitai",
+  "license": "MIT",
+  "dependencies": {
+    "cache-storage": "^2.0.1",
+    "clui": "^0.3.1",
+    "debug": "^2.2.0",
+    "nedb": "^1.2.1",
+    "slumber": "^0.7.0"
+  }
+}
