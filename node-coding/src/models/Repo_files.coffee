@@ -14,9 +14,9 @@ class Repo_files extends BaseModel
 
   ###
 
-  delete_fileUsingGET: (user,project,delete, params = {}, fn = null) =>
+  delete_fileUsingGET: (user,project,file, params = {}, fn = null) =>
     @debug "Repo_files::delete_fileUsingGET()"
-    @get util.format("user/%s/project/%s/git/delete/%s",user,project,delete), params, (data) ->fn data if fn
+    @get util.format("user/%s/project/%s/git/delete/%s",user,project,file), params, (data) ->fn data if fn
 
   ###
 
@@ -29,9 +29,9 @@ class Repo_files extends BaseModel
 
   ###
 
-  edit_fileUsingGET: (user,project,edit, params = {}, fn = null) =>
+  edit_fileUsingGET: (user,project,file, params = {}, fn = null) =>
     @debug "Repo_files::edit_fileUsingGET()"
-    @get util.format("user/%s/project/%s/git/edit/%s",user,project,edit), params, (data) ->fn data if fn
+    @get util.format("user/%s/project/%s/git/edit/%s",user,project,file), params, (data) ->fn data if fn
 
   ###
 
@@ -44,9 +44,9 @@ class Repo_files extends BaseModel
 
   ###
 
-  create_fileUsingGET: (user,project,new, params = {}, fn = null) =>
+  create_fileUsingGET: (user,project,file, params = {}, fn = null) =>
     @debug "Repo_files::create_fileUsingGET()"
-    @get util.format("user/%s/project/%s/git/new/%s",user,project,new), params, (data) ->fn data if fn
+    @get util.format("user/%s/project/%s/git/new/%s",user,project,file), params, (data) ->fn data if fn
 
 module.exports = (client) -> new Repo_files client
 
