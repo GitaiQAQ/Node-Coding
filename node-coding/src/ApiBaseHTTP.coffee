@@ -27,7 +27,7 @@ class module.exports.ApiBaseHTTP extends ApiBase
 
     unless @options.token
       data=@storage.load 'access_token'
-      if data and data.access_token
+      if data and data.access_token and new Date().getTime() < data.timeout
         @options.token=data.access_token
 
 

@@ -54,6 +54,7 @@ class Oauth extends BaseModel
     @debug "Oauth::token()"
     @debug code
     @get util.format("oauth/access_token?client_id=%s&client_secret=%s&grant_type=authorization_code&code=%s",id, secret, code), (data) =>
+      data.timeout=new Date().getTime() + data.expires_in
       @storage.save "access_token",data
       fn data if fn
 
