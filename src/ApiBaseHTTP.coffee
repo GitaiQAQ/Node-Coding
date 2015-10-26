@@ -1,3 +1,4 @@
+_ = require 'lodash'
 debug = require('debug') 'coding:ApiBaseHTTP'
 {ApiBase} = require './ApiBase'
 querystring = require 'querystring'
@@ -45,6 +46,9 @@ class module.exports.ApiBaseHTTP extends ApiBase
     super
     api = slumber.API @options.url, @options.slumber
     @slumber = api(@options.base_url)
+
+  update_opts:(opts)=>
+    @options = _.assign(@options,opts)
 
   prepare_opts: (opts) =>
     opts.__query ?= {}

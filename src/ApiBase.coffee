@@ -16,13 +16,13 @@ class module.exports.ApiBase
     @oauth = require('./models/OAuth') @client
     @users = require('./models/Users') @client
     @projects = require('./models/Projects') @client
-    @project_topics = require('./models/Project_topics') @client
+    @projectTopics = require('./models/Project_topics') @client
     @commits = require('./models/Commits') @client
     @branchs = require('./models/Branchs') @client
     @trees = require('./models/Trees') @client
-    @merge_requests = require('./models/Merge_requests') @client
-    @pull_requests = require('./models/Pull_requests') @client
-    @repo_files = require('./models/Repo_files') @client
+    @mergeRequests = require('./models/Merge_requests') @client
+    @pullRequests = require('./models/Pull_requests') @client
+    @repoFiles = require('./models/Repo_files') @client
     @tasks = require('./models/Tasks') @client
     @blobs = require('./models/Blobs') @client
     @depots = require('./models/Depots') @client

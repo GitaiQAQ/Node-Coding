@@ -22,7 +22,7 @@ class Projects extends BaseModel
   ###
 
    method		: put
-   operationId	: updateUsingPUT_1
+   operationId	: update_1
    description	: 更新项目信息
    path			: 
    query		: id(string),name(string),description(string)
@@ -30,8 +30,8 @@ class Projects extends BaseModel
 
   ###
 
-  updateUsingPUT_1: ( params = {}, fn = null) =>
-    @debug "Projects::updateUsingPUT_1()"
+  update_1: ( params = {}, fn = null) =>
+    @debug "Projects::update_1()"
     @put "project", params, (data) ->
       fn data if fn
 

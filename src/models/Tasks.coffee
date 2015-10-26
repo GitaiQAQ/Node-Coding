@@ -86,7 +86,7 @@ class Tasks extends BaseModel
   ###
 
    method		: put
-   operationId	: update4clientUsingPUT
+   operationId	: update4client
    description	: 修改任务
    path			: user,project,id
    query		: status(integer),priority(integer),id(integer),owner_id(integer),deadline(string),description(string),content(string)
@@ -94,8 +94,8 @@ class Tasks extends BaseModel
 
   ###
 
-  update4clientUsingPUT: (user,project,id, params = {}, fn = null) =>
-    @debug "Tasks::update4clientUsingPUT()"
+  update4client: (user,project,id, params = {}, fn = null) =>
+    @debug "Tasks::update4client()"
     @put util.format("user/%s/project/%s/task/%s",user,project,id), params, (data) ->
       fn data if fn
 
@@ -118,7 +118,7 @@ class Tasks extends BaseModel
   ###
 
    method		: delete
-   operationId	: deleteCommentUsingDELETE
+   operationId	: deleteComment
    description	: 删除任务评论
    path			: user,project,id,commentId
    query		: 
@@ -126,8 +126,8 @@ class Tasks extends BaseModel
 
   ###
 
-  deleteCommentUsingDELETE: (user,project,id,commentId, params = {}, fn = null) =>
-    @debug "Tasks::deleteCommentUsingDELETE()"
+  deleteComment: (user,project,id,commentId, params = {}, fn = null) =>
+    @debug "Tasks::deleteComment()"
     @delete util.format("user/%s/project/%s/task/%s/comment/%s",user,project,id,commentId), params, (data) ->
       fn data if fn
 
@@ -150,7 +150,7 @@ class Tasks extends BaseModel
   ###
 
    method		: put
-   operationId	: updateContentUsingPUT
+   operationId	: updateContent
    description	: 修改任务内容
    path			: user,project,id
    query		: content(string),id(integer)
@@ -158,15 +158,15 @@ class Tasks extends BaseModel
 
   ###
 
-  updateContentUsingPUT: (user,project,id, params = {}, fn = null) =>
-    @debug "Tasks::updateContentUsingPUT()"
+  updateContent: (user,project,id, params = {}, fn = null) =>
+    @debug "Tasks::updateContent()"
     @put util.format("user/%s/project/%s/task/%s/content",user,project,id), params, (data) ->
       fn data if fn
 
   ###
 
    method		: put
-   operationId	: updateDeadlineUsingPUT
+   operationId	: updateDeadline
    description	: 修改任务截止日期
    path			: user,project,id
    query		: deadline(string),id(integer)
@@ -174,8 +174,8 @@ class Tasks extends BaseModel
 
   ###
 
-  updateDeadlineUsingPUT: (user,project,id, params = {}, fn = null) =>
-    @debug "Tasks::updateDeadlineUsingPUT()"
+  updateDeadline: (user,project,id, params = {}, fn = null) =>
+    @debug "Tasks::updateDeadline()"
     @put util.format("user/%s/project/%s/task/%s/deadline",user,project,id), params, (data) ->
       fn data if fn
 
@@ -230,7 +230,7 @@ class Tasks extends BaseModel
   ###
 
    method		: put
-   operationId	: updateOwnerUsingPUT
+   operationId	: updateOwner
    description	: 修改任务执行者
    path			: user,project,id
    query		: owner_id(integer),id(integer)
@@ -238,15 +238,15 @@ class Tasks extends BaseModel
 
   ###
 
-  updateOwnerUsingPUT: (user,project,id, params = {}, fn = null) =>
-    @debug "Tasks::updateOwnerUsingPUT()"
+  updateOwner: (user,project,id, params = {}, fn = null) =>
+    @debug "Tasks::updateOwner()"
     @put util.format("user/%s/project/%s/task/%s/owner",user,project,id), params, (data) ->
       fn data if fn
 
   ###
 
    method		: put
-   operationId	: updatePriorityUsingPUT
+   operationId	: updatePriority
    description	: 修改任务优先级
    path			: user,project,id
    query		: priority(integer),id(integer)
@@ -254,15 +254,15 @@ class Tasks extends BaseModel
 
   ###
 
-  updatePriorityUsingPUT: (user,project,id, params = {}, fn = null) =>
-    @debug "Tasks::updatePriorityUsingPUT()"
+  updatePriority: (user,project,id, params = {}, fn = null) =>
+    @debug "Tasks::updatePriority()"
     @put util.format("user/%s/project/%s/task/%s/priority",user,project,id), params, (data) ->
       fn data if fn
 
   ###
 
    method		: put
-   operationId	: updateStatusUsingPUT
+   operationId	: updateStatus
    description	: 修改任务状态
    path			: user,project,id
    query		: status(integer),id(integer)
@@ -270,8 +270,8 @@ class Tasks extends BaseModel
 
   ###
 
-  updateStatusUsingPUT: (user,project,id, params = {}, fn = null) =>
-    @debug "Tasks::updateStatusUsingPUT()"
+  updateStatus: (user,project,id, params = {}, fn = null) =>
+    @debug "Tasks::updateStatus()"
     @put util.format("user/%s/project/%s/task/%s/status",user,project,id), params, (data) ->
       fn data if fn
 

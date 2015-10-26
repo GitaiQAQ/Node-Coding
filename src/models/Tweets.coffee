@@ -150,7 +150,7 @@ class Tweets extends BaseModel
   ###
 
    method		: delete
-   operationId	: delete_commentUsingDELETE
+   operationId	: delete_comment
    description	: 删除冒泡评论
    path			: id,comment_id
    query		: 
@@ -158,8 +158,8 @@ class Tweets extends BaseModel
 
   ###
 
-  delete_commentUsingDELETE: (id,comment_id, params = {}, fn = null) =>
-    @debug "Tweets::delete_commentUsingDELETE()"
+  delete_comment: (id,comment_id, params = {}, fn = null) =>
+    @debug "Tweets::delete_comment()"
     @delete util.format("social/tweet/%s/comment/%s",id,comment_id), params, (data) ->
       fn data if fn
 
@@ -182,7 +182,7 @@ class Tweets extends BaseModel
   ###
 
    method		: delete
-   operationId	: deleteTweetUsingDELETE
+   operationId	: deleteTweet
    description	: 删除冒泡
    path			: tweet_id
    query		: 
@@ -190,8 +190,8 @@ class Tweets extends BaseModel
 
   ###
 
-  deleteTweetUsingDELETE: (tweet_id, params = {}, fn = null) =>
-    @debug "Tweets::deleteTweetUsingDELETE()"
+  deleteTweet: (tweet_id, params = {}, fn = null) =>
+    @debug "Tweets::deleteTweet()"
     @delete util.format("social/tweet/%s",tweet_id), params, (data) ->
       fn data if fn
 

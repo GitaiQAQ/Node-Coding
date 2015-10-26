@@ -2,7 +2,7 @@ util = require 'util'
 http = require 'http'
 url  = require 'url'
 clui = require 'clui'
-qs = require('querystring')
+qs = require 'querystring'
 
 BaseModel = require '../BaseModel'
 
@@ -90,6 +90,8 @@ class Oauth extends BaseModel
       "code":code
     @get "oauth/access_token",params,(data) =>
       if data and data.access_token
+        @update_opts
+          token:data.access_token
         @storage.save "access_token",data,{"expire":{"seconds":data.expires_in}}
       fn data if fn
 

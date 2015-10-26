@@ -4,7 +4,7 @@
   "description": "Coding.net API Nodejs library.",
   "main": "lib/index.js",
   "scripts": {
-    "test": "coffee -c --no-header -o test test; ./node_modules/.bin/mocha test"
+    "test": "coffee -c --no-header -o test test; ./node_modules/.bin/mocha test; rm test/*.js"
   },
   "keywords": [
     "api",
@@ -17,6 +17,7 @@
     "cache-storage": "^2.0.1",
     "clui": "^0.3.1",
     "debug": "^2.2.0",
+    "faker": "^3.0.1",
     "slumber": "^0.7.0"
   },
   "devDependencies": {

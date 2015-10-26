@@ -38,7 +38,7 @@ class Files extends BaseModel
   ###
 
    method		: delete
-   operationId	: deleteFilesUsingDELETE
+   operationId	: deleteFiles
    description	: 删除文件
    path			: user,project
    query		: 
@@ -46,15 +46,15 @@ class Files extends BaseModel
 
   ###
 
-  deleteFilesUsingDELETE: (user,project, params = {}, fn = null) =>
-    @debug "Files::deleteFilesUsingDELETE()"
+  deleteFiles: (user,project, params = {}, fn = null) =>
+    @debug "Files::deleteFiles()"
     @delete util.format("user/%s/project/%s/files",user,project), params, (data) ->
       fn data if fn
 
   ###
 
    method		: delete
-   operationId	: deleteFileHistoryUsingDELETE
+   operationId	: deleteFileHistory
    description	: 删除文件历史
    path			: user,project,id
    query		: 
@@ -62,8 +62,8 @@ class Files extends BaseModel
 
   ###
 
-  deleteFileHistoryUsingDELETE: (user,project,id, params = {}, fn = null) =>
-    @debug "Files::deleteFileHistoryUsingDELETE()"
+  deleteFileHistory: (user,project,id, params = {}, fn = null) =>
+    @debug "Files::deleteFileHistory()"
     @delete util.format("user/%s/project/%s/files/histories/%s",user,project,id), params, (data) ->
       fn data if fn
 
@@ -246,7 +246,7 @@ class Files extends BaseModel
   ###
 
    method		: put
-   operationId	: moveUsingPUT
+   operationId	: move
    description	: 移动文件
    path			: user,project,dirId
    query		: fileId(ref)
@@ -254,15 +254,15 @@ class Files extends BaseModel
 
   ###
 
-  moveUsingPUT: (user,project,dirId, params = {}, fn = null) =>
-    @debug "Files::moveUsingPUT()"
+  move: (user,project,dirId, params = {}, fn = null) =>
+    @debug "Files::move()"
     @put util.format("user/%s/project/%s/folder/%s/move",user,project,dirId), params, (data) ->
       fn data if fn
 
   ###
 
    method		: put
-   operationId	: renameFolderUsingPUT
+   operationId	: renameFolder
    description	: 重命名文件夹
    path			: user,project,dir
    query		: name(string)
@@ -270,8 +270,8 @@ class Files extends BaseModel
 
   ###
 
-  renameFolderUsingPUT: (user,project,dir, params = {}, fn = null) =>
-    @debug "Files::renameFolderUsingPUT()"
+  renameFolder: (user,project,dir, params = {}, fn = null) =>
+    @debug "Files::renameFolder()"
     @put util.format("user/%s/project/%s/folder/%s",user,project,dir), params, (data) ->
       fn data if fn
 

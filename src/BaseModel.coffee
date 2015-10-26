@@ -18,4 +18,6 @@ class module.exports
 
     @storage = @client.storage
 
+    @update_opts = @client.update_opts
+
     do @init if @init?

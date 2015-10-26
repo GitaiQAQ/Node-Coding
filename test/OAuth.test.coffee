@@ -36,9 +36,3 @@ describe 'OAuth', ->
 			data=coding.storage.load 'access_token'
 			should.not.exist data
 			done()
-
-	describe 'authorize()', ->
-		it 'OAuth 再次授权', (done) ->
-			@timeout 60000
-			coding.oauth.authorize realId,realSecret,null,null,(result)->
-				done()

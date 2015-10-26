@@ -2,7 +2,7 @@ assert = require 'assert'
 should = require 'should'
 faker = require 'faker'
 
-describe 'Commits', ->
+describe 'Repo_files', ->
 	coding = null
 
 	realId = "1ef6d9c909016bc8c3cdaa344d114262"
@@ -10,7 +10,7 @@ describe 'Commits', ->
 
 	project = "test_project"
 	user = "gitai"
-	commit = "fbc6353d89dc972bce2a7601b8160ce4c10257a1"
+	new
 
 	test_user = "dphdjy"
 
@@ -31,10 +31,25 @@ describe 'Commits', ->
 
 	beforeEach ->
 
-	describe 'show()', ->
-		it 'commit 列表', (done) ->
-			#"diff":"string","w":"string","ref":"string"
-			coding.commits.show user,project,commit,{},(result)->
+	describe 'delete_file()', ->
+		it '删除文件', (done) ->
+			coding.repoFiles.delete_file user,project,delete,{"ref":"string","path":"string"},(result)->
+				should.not.exist result["msg"]
+				result.code.should.equal 0
+				should.exist result["data"]
+				done()
+
+	describe 'edit_file()', ->
+		it '更新文件', (done) ->
+			coding.repoFiles.edit_file user,project,edit,{"ref":"string","path":"string"},(result)->
+				should.not.exist result["msg"]
+				result.code.should.equal 0
+				should.exist result["data"]
+				done()
+
+	describe 'create_file()', ->
+		it '新建文件', (done) ->
+			coding.repoFiles.create_file user,project,new,{"ref":"string","path":"string"},(result)->
 				should.not.exist result["msg"]
 				result.code.should.equal 0
 				should.exist result["data"]
