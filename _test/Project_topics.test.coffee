@@ -10,7 +10,8 @@ describe 'Project_topics', ->
 
 	project = "test_project"
 	user = "gitai"
-	id,labelId
+	id = null
+	labelId = null
 
 	test_user = "dphdjy"
 
@@ -33,10 +34,13 @@ describe 'Project_topics', ->
 
 	describe 'projectTopicList()', ->
 		it '项目讨论列表', (done) ->
-			coding.projectTopics.projectTopicList user,project,{"orderBy":"integer","page":"integer","pageSize":"integer"},(result)->
+			coding.projectTopics.projectTopicList user,project,{
+				"orderBy":1,
+				"page":0,
+				"pageSize":10},(result)->
 				should.not.exist result["msg"]
 				result.code.should.equal 0
-				should.exist result["data"]
+				console.log result["data"]
 				done()
 
 	describe 'topicCount()', ->
@@ -44,15 +48,29 @@ describe 'Project_topics', ->
 			coding.projectTopics.topicCount user,project,{},(result)->
 				should.not.exist result["msg"]
 				result.code.should.equal 0
-				should.exist result["data"]
+				console.log result["data"]
 				done()
+
+
+	describe 'operateTopicLabels()', ->
+		it '批量操作讨论标签', (done) ->
+			coding.projectTopics.operateTopicLabels user,project,id,{
+				"label_id":"string"},(result)->
+				should.not.exist result["msg"]
+				result.code.should.equal 0
+				console.log result["data"]
+				done()
+
 
 	describe 'getProjectTopicByLabel()', ->
 		it '通过标签获得讨论列表', (done) ->
-			coding.projectTopics.getProjectTopicByLabel user,project,id,{"orderBy":"integer","page":"integer","pageSize":"integer"},(result)->
+			coding.projectTopics.getProjectTopicByLabel user,project,id,{
+				"orderBy":1,
+				"page":0,
+				"pageSize":10},(result)->
 				should.not.exist result["msg"]
 				result.code.should.equal 0
-				should.exist result["data"]
+				console.log result["data"]
 				done()
 
 	describe 'getMyLabelByProject()', ->
@@ -60,55 +78,18 @@ describe 'Project_topics', ->
 			coding.projectTopics.getMyLabelByProject user,project,{},(result)->
 				should.not.exist result["msg"]
 				result.code.should.equal 0
-				should.exist result["data"]
+				console.log result["data"]
 				done()
 
 	describe 'myProjectTopicList()', ->
 		it '我的讨论', (done) ->
-			coding.projectTopics.myProjectTopicList user,project,{"orderBy":"integer","page":"integer","pageSize":"integer"},(result)->
+			coding.projectTopics.myProjectTopicList user,project,{
+				"orderBy":1,
+				"page":0,
+				"pageSize":10},(result)->
 				should.not.exist result["msg"]
 				result.code.should.equal 0
-				should.exist result["data"]
-				done()
-
-	describe 'myWatchingProjectTopics()', ->
-		it '获取我关注的讨论列表', (done) ->
-			coding.projectTopics.myWatchingProjectTopics user,project,{"orderBy":"integer","page":"integer","pageSize":"integer"},(result)->
-				should.not.exist result["msg"]
-				result.code.should.equal 0
-				should.exist result["data"]
-				done()
-
-	describe 'projectTopicDetail()', ->
-		it '讨论详情', (done) ->
-			coding.projectTopics.projectTopicDetail user,project,id,{"type":"integer","toc":"boolean"},(result)->
-				should.not.exist result["msg"]
-				result.code.should.equal 0
-				should.exist result["data"]
-				done()
-
-	describe 'projectTopicComments()', ->
-		it '讨论评论列表', (done) ->
-			coding.projectTopics.projectTopicComments user,project,id,{"page":"integer","pageSize":"integer","type":"integer"},(result)->
-				should.not.exist result["msg"]
-				result.code.should.equal 0
-				should.exist result["data"]
-				done()
-
-	describe 'addTopicLabel()', ->
-		it '讨论添加标签', (done) ->
-			coding.projectTopics.addTopicLabel user,project,id,labelId,{},(result)->
-				should.not.exist result["msg"]
-				result.code.should.equal 0
-				should.exist result["data"]
-				done()
-
-	describe 'operateTopicLabels()', ->
-		it '批量操作讨论标签', (done) ->
-			coding.projectTopics.operateTopicLabels user,project,id,{"label_id":"string"},(result)->
-				should.not.exist result["msg"]
-				result.code.should.equal 0
-				should.exist result["data"]
+				console.log result["data"]
 				done()
 
 	describe 'watch_1()', ->
@@ -116,16 +97,56 @@ describe 'Project_topics', ->
 			coding.projectTopics.watch_1 user,project,id,{},(result)->
 				should.not.exist result["msg"]
 				result.code.should.equal 0
-				should.exist result["data"]
+				console.log result["data"]
 				done()
 
 	describe 'getTopicWatchers()', ->
 		it '获取关注该讨论的用户', (done) ->
-			coding.projectTopics.getTopicWatchers user,project,id,{"page":"integer","pageSize":"integer"},(result)->
+			coding.projectTopics.getTopicWatchers user,project,id,{
+				"page":"integer",
+				"pageSize":"integer"},(result)->
 				should.not.exist result["msg"]
 				result.code.should.equal 0
-				should.exist result["data"]
+				console.log result["data"]
 				done()
 
+	describe 'myWatchingProjectTopics()', ->
+		it '获取我关注的讨论列表', (done) ->
+			coding.projectTopics.myWatchingProjectTopics user,project,{
+				"orderBy":1,
+				"page":0,
+				"pageSize":10},(result)->
+				should.not.exist result["msg"]
+				result.code.should.equal 0
+				console.log result["data"]
+				done()
+
+	describe 'projectTopicDetail()', ->
+		it '讨论详情', (done) ->
+			coding.projectTopics.projectTopicDetail user,project,id,{
+				"type":1,
+				"toc":true},(result)->
+				should.not.exist result["msg"]
+				console.log result["data"]
+				done()
+
+	describe 'projectTopicComments()', ->
+		it '讨论评论列表', (done) ->
+			coding.projectTopics.projectTopicComments user,project,id,{
+				"page":"integer",
+				"pageSize":"integer",
+				"type":"integer"},(result)->
+				should.not.exist result["msg"]
+				result.code.should.equal 0
+				console.log result["data"]
+				done()
+
+	describe 'addTopicLabel()', ->
+		it '讨论添加标签', (done) ->
+			coding.projectTopics.addTopicLabel user,project,id,labelId,{},(result)->
+				should.not.exist result["msg"]
+				result.code.should.equal 0
+				console.log result["data"]
+				done()
 
 

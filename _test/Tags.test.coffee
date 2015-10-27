@@ -10,7 +10,6 @@ describe 'Tags', ->
 
 	project = "test_project"
 	user = "gitai"
-	
 
 	test_user = "dphdjy"
 
@@ -33,26 +32,32 @@ describe 'Tags', ->
 
 	describe 'list_4()', ->
 		it '标签列表', (done) ->
-			coding.tags.list_4 user,project,{"page":"integer","pageSize":"integer"},(result)->
+			coding.tags.list_4 user,project,{
+				"page":"integer",
+				"pageSize":"integer"},(result)->
 				should.not.exist result["msg"]
 				result.code.should.equal 0
-				should.exist result["data"]
+				console.log result["data"]
 				done()
 
 	describe 'createTag()', ->
 		it '创建标签', (done) ->
-			coding.tags.createTag user,project,{"tag_name":"string","tag_point":"string","message":"string"},(result)->
+			coding.tags.createTag user,project,{
+				"tag_name":"string",
+				"tag_point":"string",
+				"message":"string"},(result)->
 				should.not.exist result["msg"]
 				result.code.should.equal 0
-				should.exist result["data"]
+				console.log result["data"]
 				done()
 
 	describe 'deleteTag()', ->
 		it '删除标签', (done) ->
-			coding.tags.deleteTag user,project,{"tag_name":"string"},(result)->
+			coding.tags.deleteTag user,project,{
+				"tag_name":"string"},(result)->
 				should.not.exist result["msg"]
 				result.code.should.equal 0
-				should.exist result["data"]
+				console.log result["data"]
 				done()
 
 

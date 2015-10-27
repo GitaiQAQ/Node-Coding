@@ -33,7 +33,9 @@ describe 'Trees', ->
 
 	describe 'tree()', ->
 		it '目录', (done) ->
-			coding.trees.tree user,project,tree,{"ref":"string","path":"string"},(result)->
+			coding.trees.tree user,project,tree,{
+				"ref":"string",
+				"path":"string"},(result)->
 				should.not.exist result["msg"]
 				result.code.should.equal 0
 				should.exist result["data"]

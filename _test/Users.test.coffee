@@ -33,26 +33,38 @@ describe 'Users', ->
 
 	describe 'doActivate()', ->
 		it '账户激活', (done) ->
-			coding.users.doActivate {"email":"string","key":"string","password":"string","confirm_password":"string","sid":"string"},(result)->
+			coding.users.doActivate {
+				"email":"string",
+				"key":"string",
+				"password":"string",
+				"confirm_password":"string",
+				"sid":"string"},(result)->
 				should.not.exist result["msg"]
 				result.code.should.equal 0
-				should.exist result["data"]
+				console.log result["data"]
 				done()
 
 	describe 'generateActivatePhoneCode()', ->
 		it '获取激活账号的手机验证码', (done) ->
-			coding.users.generateActivatePhoneCode {"phone":"string"},(result)->
+			coding.users.generateActivatePhoneCode {
+				"phone":"string"},(result)->
 				should.not.exist result["msg"]
 				result.code.should.equal 0
-				should.exist result["data"]
+				console.log result["data"]
 				done()
 
 	describe 'activatePhone()', ->
 		it '激活用手机注册的用户', (done) ->
-			coding.users.activatePhone {"phone":"string","code":"string","global_key":"string","email":"string","password":"string","sid":"string"},(result)->
+			coding.users.activatePhone {
+				"phone":"string",
+				"code":"string",
+				"global_key":"string",
+				"email":"string",
+				"password":"string",
+				"sid":"string"},(result)->
 				should.not.exist result["msg"]
 				result.code.should.equal 0
-				should.exist result["data"]
+				console.log result["data"]
 				done()
 
 	describe 'getAvatar()', ->
@@ -60,47 +72,54 @@ describe 'Users', ->
 			coding.users.getAvatar {},(result)->
 				should.not.exist result["msg"]
 				result.code.should.equal 0
-				should.exist result["data"]
+				console.log result["data"]
 				done()
 
 	describe 'captcha()', ->
 		it '检查是否需要验证码', (done) ->
-			coding.users.captcha action,{"realRemoteAddress":"string"},(result)->
+			coding.users.captcha action,{
+				"realRemoteAddress":"string"},(result)->
 				should.not.exist result["msg"]
 				result.code.should.equal 0
-				should.exist result["data"]
+				console.log result["data"]
 				done()
 
 	describe 'changeNotificationSetting()', ->
 		it '修改通知设置', (done) ->
-			coding.users.changeNotificationSetting {"settingType":"string","settingContent":"string"},(result)->
+			coding.users.changeNotificationSetting {
+				"settingType":"string",
+				"settingContent":"string"},(result)->
 				should.not.exist result["msg"]
 				result.code.should.equal 0
-				should.exist result["data"]
+				console.log result["data"]
 				done()
 
 	describe 'check()', ->
 		it '检查email是否没有被注册过', (done) ->
-			coding.users.check {"key":"string"},(result)->
+			coding.users.check {
+				"key":"string"},(result)->
 				should.not.exist result["msg"]
 				result.code.should.equal 0
-				should.exist result["data"]
+				console.log result["data"]
 				done()
 
 	describe 'checkPhone()', ->
 		it '检查手机是否没有被注册过', (done) ->
-			coding.users.checkPhone {"phone":"string"},(result)->
+			coding.users.checkPhone {
+				"phone":"string"},(result)->
 				should.not.exist result["msg"]
 				result.code.should.equal 0
-				should.exist result["data"]
+				console.log result["data"]
 				done()
 
 	describe 'checkTwoFactorAuthCode()', ->
 		it '登录时的两步验证', (done) ->
-			coding.users.checkTwoFactorAuthCode {"code":"integer","sid":"string"},(result)->
+			coding.users.checkTwoFactorAuthCode {
+				"code":"integer",
+				"sid":"string"},(result)->
 				should.not.exist result["msg"]
 				result.code.should.equal 0
-				should.exist result["data"]
+				console.log result["data"]
 				done()
 
 	describe 'currentUser()', ->
@@ -108,7 +127,7 @@ describe 'Users', ->
 			coding.users.currentUser {},(result)->
 				should.not.exist result["msg"]
 				result.code.should.equal 0
-				should.exist result["data"]
+				console.log result["data"]
 				done()
 
 	describe 'userEmail()', ->
@@ -116,7 +135,7 @@ describe 'Users', ->
 			coding.users.userEmail {},(result)->
 				should.not.exist result["msg"]
 				result.code.should.equal 0
-				should.exist result["data"]
+				console.log result["data"]
 				done()
 
 	describe 'getNotificationSettings()', ->
@@ -124,7 +143,7 @@ describe 'Users', ->
 			coding.users.getNotificationSettings {},(result)->
 				should.not.exist result["msg"]
 				result.code.should.equal 0
-				should.exist result["data"]
+				console.log result["data"]
 				done()
 
 	describe 'getGravatar()', ->
@@ -132,7 +151,7 @@ describe 'Users', ->
 			coding.users.getGravatar {},(result)->
 				should.not.exist result["msg"]
 				result.code.should.equal 0
-				should.exist result["data"]
+				console.log result["data"]
 				done()
 
 	describe 'getUserByGlobalKey()', ->
@@ -140,39 +159,52 @@ describe 'Users', ->
 			coding.users.getUserByGlobalKey global_key,{},(result)->
 				should.not.exist result["msg"]
 				result.code.should.equal 0
-				should.exist result["data"]
+				console.log result["data"]
 				done()
 
 	describe 'doLogin()', ->
 		it '登录', (done) ->
-			coding.users.doLogin {"email":"string","password":"string","j_captcha":"string","remember_me":"string","sid":"string","realRemoteAddress":"string"},(result)->
+			coding.users.doLogin {
+				"email":"string",
+				"password":"string",
+				"j_captcha":"string",
+				"remember_me":"string",
+				"sid":"string",
+				"realRemoteAddress":"string"},(result)->
 				should.not.exist result["msg"]
 				result.code.should.equal 0
-				should.exist result["data"]
+				console.log result["data"]
 				done()
 
 	describe 'generateLoginPhoneCode()', ->
 		it '获取登录的手机验证码', (done) ->
-			coding.users.generateLoginPhoneCode {"phone":"string"},(result)->
+			coding.users.generateLoginPhoneCode {
+				"phone":"string"},(result)->
 				should.not.exist result["msg"]
 				result.code.should.equal 0
-				should.exist result["data"]
+				console.log result["data"]
 				done()
 
 	describe 'doPhoneLogin()', ->
 		it '使用绑定过的手机号码登录', (done) ->
-			coding.users.doPhoneLogin {"phone":"string","code":"string","j_captcha":"string","remember_me":"boolean","realRemoteAddress":"string"},(result)->
+			coding.users.doPhoneLogin {
+				"phone":"string",
+				"code":"string",
+				"j_captcha":"string",
+				"remember_me":"boolean",
+				"realRemoteAddress":"string"},(result)->
 				should.not.exist result["msg"]
 				result.code.should.equal 0
-				should.exist result["data"]
+				console.log result["data"]
 				done()
 
 	describe 'doLogout()', ->
 		it '注销登录', (done) ->
-			coding.users.doLogout {"sid":"string"},(result)->
+			coding.users.doLogout {
+				"sid":"string"},(result)->
 				should.not.exist result["msg"]
 				result.code.should.equal 0
-				should.exist result["data"]
+				console.log result["data"]
 				done()
 
 	describe 'getUserByName()', ->
@@ -180,95 +212,130 @@ describe 'Users', ->
 			coding.users.getUserByName name,{},(result)->
 				should.not.exist result["msg"]
 				result.code.should.equal 0
-				should.exist result["data"]
+				console.log result["data"]
 				done()
 
 	describe 'doRegister()', ->
 		it '注册', (done) ->
-			coding.users.doRegister {"email":"string","global_key":"string","j_captcha":"string","realRemoteAddress":"string"},(result)->
+			coding.users.doRegister {
+				"email":"string",
+				"global_key":"string",
+				"j_captcha":"string",
+				"realRemoteAddress":"string"},(result)->
 				should.not.exist result["msg"]
 				result.code.should.equal 0
-				should.exist result["data"]
+				console.log result["data"]
 				done()
 
 	describe 'generateRegisterPhoneCode()', ->
 		it '获取注册的手机验证码', (done) ->
-			coding.users.generateRegisterPhoneCode {"phone":"string"},(result)->
+			coding.users.generateRegisterPhoneCode {
+				"phone":"string"},(result)->
 				should.not.exist result["msg"]
 				result.code.should.equal 0
-				should.exist result["data"]
+				console.log result["data"]
 				done()
 
 	describe 'doPhoneRegister()', ->
 		it '使用手机注册', (done) ->
-			coding.users.doPhoneRegister {"phone":"string","code":"string","realRemoteAddress":"string"},(result)->
+			coding.users.doPhoneRegister {
+				"phone":"string",
+				"code":"string",
+				"realRemoteAddress":"string"},(result)->
 				should.not.exist result["msg"]
 				result.code.should.equal 0
-				should.exist result["data"]
+				console.log result["data"]
 				done()
 
 	describe 'updateInfo()', ->
 		it '更新用户信息', (done) ->
-			coding.users.updateInfo {"tags":"string","name":"string","sex":"string","phone":"string","birthday":"string","location":"string","company":"string","slogan":"string","introduction":"string","job":"string","code":"string","sid":"string"},(result)->
+			coding.users.updateInfo {
+				"tags":"string",
+				"name":"string",
+				"sex":"string",
+				"phone":"string",
+				"birthday":"string",
+				"location":"string",
+				"company":"string",
+				"slogan":"string",
+				"introduction":"string",
+				"job":"string",
+				"code":"string",
+				"sid":"string"},(result)->
 				should.not.exist result["msg"]
 				result.code.should.equal 0
-				should.exist result["data"]
+				console.log result["data"]
 				done()
 
 	describe 'updatePassword()', ->
 		it '修改用户密码', (done) ->
-			coding.users.updatePassword {"current_password":"string","password":"string","confirm_password":"string","sid":"string"},(result)->
+			coding.users.updatePassword {
+				"current_password":"string",
+				"password":"string",
+				"confirm_password":"string",
+				"sid":"string"},(result)->
 				should.not.exist result["msg"]
 				result.code.should.equal 0
-				should.exist result["data"]
+				console.log result["data"]
 				done()
 
 	describe 'updateAvatar()', ->
 		it '更新头像', (done) ->
-			coding.users.updateAvatar {"avatar":"string","sid":"string"},(result)->
+			coding.users.updateAvatar {
+				"avatar":"string",
+				"sid":"string"},(result)->
 				should.not.exist result["msg"]
 				result.code.should.equal 0
-				should.exist result["data"]
+				console.log result["data"]
 				done()
 
 	describe 'follow()', ->
 		it '关注用户', (done) ->
-			coding.users.follow {"users":"string"},(result)->
+			coding.users.follow {
+				"users":"string"},(result)->
 				should.not.exist result["msg"]
 				result.code.should.equal 0
-				should.exist result["data"]
+				console.log result["data"]
 				done()
 
 	describe 'followers_1()', ->
 		it '关注我的用户', (done) ->
-			coding.users.followers_1 {"page":"integer","pageSize":"integer"},(result)->
+			coding.users.followers_1 {
+				"page":"integer",
+				"pageSize":"integer"},(result)->
 				should.not.exist result["msg"]
 				result.code.should.equal 0
-				should.exist result["data"]
+				console.log result["data"]
 				done()
 
 	describe 'followers()', ->
 		it '获取关注默认的用户', (done) ->
-			coding.users.followers global_key,{"page":"integer","pageSize":"integer"},(result)->
+			coding.users.followers global_key,{
+				"page":"integer",
+				"pageSize":"integer"},(result)->
 				should.not.exist result["msg"]
 				result.code.should.equal 0
-				should.exist result["data"]
+				console.log result["data"]
 				done()
 
 	describe 'friends_1()', ->
 		it '我关注的用户列表', (done) ->
-			coding.users.friends_1 {"page":"integer","pageSize":"integer"},(result)->
+			coding.users.friends_1 {
+				"page":"integer",
+				"pageSize":"integer"},(result)->
 				should.not.exist result["msg"]
 				result.code.should.equal 0
-				should.exist result["data"]
+				console.log result["data"]
 				done()
 
 	describe 'friends()', ->
 		it '指定用户的关注列表', (done) ->
-			coding.users.friends global_key,{"page":"integer","pageSize":"integer"},(result)->
+			coding.users.friends global_key,{
+				"page":"integer",
+				"pageSize":"integer"},(result)->
 				should.not.exist result["msg"]
 				result.code.should.equal 0
-				should.exist result["data"]
+				console.log result["data"]
 				done()
 
 	describe 'relationship()', ->
@@ -276,7 +343,7 @@ describe 'Users', ->
 			coding.users.relationship global_key,{},(result)->
 				should.not.exist result["msg"]
 				result.code.should.equal 0
-				should.exist result["data"]
+				console.log result["data"]
 				done()
 
 	describe 'getRelationship()', ->
@@ -284,31 +351,36 @@ describe 'Users', ->
 			coding.users.getRelationship {},(result)->
 				should.not.exist result["msg"]
 				result.code.should.equal 0
-				should.exist result["data"]
+				console.log result["data"]
 				done()
 
 	describe 'getRelationshipWithProjectMember()', ->
 		it '获取我关注和关注我的用户列表包含成员列表', (done) ->
-			coding.users.getRelationshipWithProjectMember {"project_id":"integer"},(result)->
+			coding.users.getRelationshipWithProjectMember {
+				"project_id":"integer"},(result)->
 				should.not.exist result["msg"]
 				result.code.should.equal 0
-				should.exist result["data"]
+				console.log result["data"]
 				done()
 
 	describe 'search()', ->
 		it '搜索用户', (done) ->
-			coding.users.search {"key":"string","page":"integer","pageSize":"integer"},(result)->
+			coding.users.search {
+				"key":"string",
+				"page":"integer",
+				"pageSize":"integer"},(result)->
 				should.not.exist result["msg"]
 				result.code.should.equal 0
-				should.exist result["data"]
+				console.log result["data"]
 				done()
 
 	describe 'unfollow()', ->
 		it '取消关注', (done) ->
-			coding.users.unfollow {"users":"string"},(result)->
+			coding.users.unfollow {
+				"users":"string"},(result)->
 				should.not.exist result["msg"]
 				result.code.should.equal 0
-				should.exist result["data"]
+				console.log result["data"]
 				done()
 
 	describe 'unreadCount()', ->
@@ -316,7 +388,7 @@ describe 'Users', ->
 			coding.users.unreadCount {},(result)->
 				should.not.exist result["msg"]
 				result.code.should.equal 0
-				should.exist result["data"]
+				console.log result["data"]
 				done()
 
 

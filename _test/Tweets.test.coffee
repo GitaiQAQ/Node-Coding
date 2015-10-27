@@ -33,7 +33,12 @@ describe 'Tweets', ->
 
 	describe 'create_1()', ->
 		it '发送冒泡', (done) ->
-			coding.tweets.create_1 {"device":"string","location":"string","coord":"string","address":"string","content":"string"},(result)->
+			coding.tweets.create_1 {
+				"device":"string",
+				"location":"string",
+				"coord":"string",
+				"address":"string",
+				"content":"string"},(result)->
 				should.not.exist result["msg"]
 				result.code.should.equal 0
 				should.exist result["data"]
@@ -65,7 +70,9 @@ describe 'Tweets', ->
 
 	describe 'lastTweet()', ->
 		it '查询last_id以后的最新冒泡', (done) ->
-			coding.tweets.lastTweet {"default_like_count":"integer","last_id":"integer"},(result)->
+			coding.tweets.lastTweet {
+				"default_like_count":"integer",
+				"last_id":"integer"},(result)->
 				should.not.exist result["msg"]
 				result.code.should.equal 0
 				should.exist result["data"]
@@ -73,7 +80,11 @@ describe 'Tweets', ->
 
 	describe 'public_tweets()', ->
 		it '冒泡列表', (done) ->
-			coding.tweets.public_tweets {"sort":"string","last_id":"integer","default_like_count":"integer","filter":"boolean"},(result)->
+			coding.tweets.public_tweets {
+				"sort":"string",
+				"last_id":"integer",
+				"default_like_count":"integer",
+				"filter":"boolean"},(result)->
 				should.not.exist result["msg"]
 				result.code.should.equal 0
 				should.exist result["data"]
@@ -81,7 +92,12 @@ describe 'Tweets', ->
 
 	describe 'user_public()', ->
 		it '用户冒泡列表', (done) ->
-			coding.tweets.user_public {"last_id":"integer","user_id":"integer","global_key":"string","type":"string","default_like_count":"integer"},(result)->
+			coding.tweets.user_public {
+				"last_id":"integer",
+				"user_id":"integer",
+				"global_key":"string",
+				"type":"string",
+				"default_like_count":"integer"},(result)->
 				should.not.exist result["msg"]
 				result.code.should.equal 0
 				should.exist result["data"]
@@ -89,7 +105,8 @@ describe 'Tweets', ->
 
 	describe 'detail()', ->
 		it '获取冒泡详情', (done) ->
-			coding.tweets.detail global_key,tweet_id,{"default_like_count":"integer"},(result)->
+			coding.tweets.detail global_key,tweet_id,{
+				"default_like_count":"integer"},(result)->
 				should.not.exist result["msg"]
 				result.code.should.equal 0
 				should.exist result["data"]
@@ -97,7 +114,9 @@ describe 'Tweets', ->
 
 	describe 'comment()', ->
 		it '冒泡评论', (done) ->
-			coding.tweets.comment id,{"content":"string","afterFilter":"string"},(result)->
+			coding.tweets.comment id,{
+				"content":"string",
+				"afterFilter":"string"},(result)->
 				should.not.exist result["msg"]
 				result.code.should.equal 0
 				should.exist result["data"]
@@ -113,7 +132,9 @@ describe 'Tweets', ->
 
 	describe 'query_comment()', ->
 		it '获取冒泡评论列表', (done) ->
-			coding.tweets.query_comment id,{"page":"integer","pageSize":"integer"},(result)->
+			coding.tweets.query_comment id,{
+				"page":"integer",
+				"pageSize":"integer"},(result)->
 				should.not.exist result["msg"]
 				result.code.should.equal 0
 				should.exist result["data"]
@@ -137,7 +158,9 @@ describe 'Tweets', ->
 
 	describe 'getTweetLike()', ->
 		it '赞过的冒泡列表', (done) ->
-			coding.tweets.getTweetLike tweet_id,{"page":"integer","pageSize":"integer"},(result)->
+			coding.tweets.getTweetLike tweet_id,{
+				"page":"integer",
+				"pageSize":"integer"},(result)->
 				should.not.exist result["msg"]
 				result.code.should.equal 0
 				should.exist result["data"]
@@ -153,7 +176,11 @@ describe 'Tweets', ->
 
 	describe 'public_tweets()', ->
 		it '冒泡广场列表', (done) ->
-			coding.tweets.public_tweets {"sort":"string","last_id":"integer","default_like_count":"integer","filter":"boolean"},(result)->
+			coding.tweets.public_tweets {
+				"sort":"string",
+				"last_id":"integer",
+				"default_like_count":"integer",
+				"filter":"boolean"},(result)->
 				should.not.exist result["msg"]
 				result.code.should.equal 0
 				should.exist result["data"]
