@@ -1,5 +1,6 @@
 util = require 'util'
 http = require 'http'
+enableDestroy = require 'server-destroy'
 url  = require 'url'
 clui = require 'clui'
 qs = require 'querystring'
@@ -60,6 +61,7 @@ class Oauth extends BaseModel
       countdown = new clui.Spinner 'Close server in ' + i + ' seconds...'
 
       server.listen port,=>
+        enableDestroy server
         countdown.start()
         int = setInterval =>
           i--
@@ -67,7 +69,7 @@ class Oauth extends BaseModel
           if !i or code
             clearInterval(int)
             countdown.stop()
-            server.close()
+            server.destroy()
             @getToken id,secret,code,fn
         , 1000
 
@@ -92,7 +94,11 @@ class Oauth extends BaseModel
       if data and data.access_token
         @update_opts
           token:data.access_token
-        @storage.save "access_token",data,{"expire":{"seconds":data.expires_in}}
+        @storage.save "access_token",data,{
+          "expire":{
+            "seconds":data.expires_in
+            }
+          }
       fn data if fn
 
   ###
@@ -103,9 +109,9 @@ class Oauth extends BaseModel
 
   ###
 
-  clean: () =>
+  clean: (fn = null) =>
     @debug "Oauth::clean()"
-    @storage.remove "access_token"
+    @storage.clean("all")
 
 
 module.exports = (client) -> new Oauth client

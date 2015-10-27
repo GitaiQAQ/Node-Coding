@@ -17,14 +17,6 @@ describe 'OAuth', ->
 
 	beforeEach ->
 
-	describe 'authorize()', ->
-		it 'OAuth 授权', (done) ->
-			@timeout 60000
-			coding.oauth.authorize realId,realSecret,null,null,(result)->
-				should.exist result
-				should.exist result['access_token']
-				done()
-
 	describe 'clean()', ->
 		it '清理 OAuth', (done) ->
 			data=coding.storage.load 'access_token'
@@ -36,3 +28,11 @@ describe 'OAuth', ->
 			data=coding.storage.load 'access_token'
 			should.not.exist data
 			done()
+
+	describe 'authorize()', ->
+		it 'OAuth 授权', (done) ->
+			@timeout 60000
+			coding.oauth.authorize realId,realSecret,null,null,(result)->
+				should.exist result
+				should.exist result['access_token']
+				done()

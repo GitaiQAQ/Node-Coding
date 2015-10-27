@@ -56,3 +56,5 @@ Coding.net API Nodejs library.
 │   └── Users.test.coffee
 └── temp //缓存及配置
 ```
+
+参照 [`node-gitlab`](https://github.com/node-gitlab/node-gitlab) 开发
