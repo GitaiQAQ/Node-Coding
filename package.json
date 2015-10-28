@@ -1,9 +1,10 @@
 {
   "name": "node-coding",
-  "version": "1.0.0",
+  "version": "0.1.2",
   "description": "Coding.net API Nodejs library.",
   "main": "lib/index.js",
   "scripts": {
+    "build":"coffee -o bin src",
     "test": "coffee -c --no-header -o test test; ./node_modules/.bin/mocha test; rm test/*.js"
   },
   "keywords": [
