@@ -4,7 +4,7 @@
   "description": "Coding.net API Nodejs library.",
   "main": "lib/index.js",
   "scripts": {
-    "build":"coffee -o bin src",
+    "build":"coffee -o lib src",
     "test": "coffee -c --no-header -o test test; ./node_modules/.bin/mocha test; rm test/*.js"
   },
   "keywords": [

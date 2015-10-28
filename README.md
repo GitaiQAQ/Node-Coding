@@ -34,27 +34,5 @@ Coding.net API Nodejs library.
 │       ├── Trees.coffee
 │       ├── Tweets.coffee
 │       └── Users.coffee
-├── test //完成的单元测试模块
-│   ├── Blobs.test.coffee
-│   ├── Branchs.test.coffee
-│   ├── Commits.test.coffee
-│   ├── Depots.test.coffee
-│   ├── Files.test.coffee
-│   ├── Historys.test.coffee
-│   ├── Keys.test.coffee
-│   ├── Merge_requests.test.coffee
-│   ├── OAuth.test.coffee
-│   └── Projects.test.coffee
-├── _test //未完成的单元测试模块
-│   ├── Project_topics.test.coffee
-│   ├── Pull_requests.test.coffee
-│   ├── Repo_files.test.coffee
-│   ├── Tags.test.coffee
-│   ├── Tasks.test.coffee
-│   ├── Trees.test.coffee
-│   ├── Tweets.test.coffee
-│   └── Users.test.coffee
 └── temp //缓存及配置
 ```
-
-参照 [`node-gitlab`](https://github.com/node-gitlab/node-gitlab) 开发
