@@ -22,7 +22,8 @@
     "server-destroy": "^1.0.1",
     "slumber": "^0.7.0",
     "superagent": "^1.4.0",
-    "superagent-prefix": "0.0.2"
+    "superagent-prefix": "0.0.2",
+    "uuid": "^2.0.1"
   },
   "devDependencies": {
     "chai": "^3.4.0",

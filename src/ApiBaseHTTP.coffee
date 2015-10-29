@@ -6,6 +6,7 @@ cache=require 'cache-storage'
 fileCache=require 'cache-storage/Storage/FileSyncStorage'
 slumber = require 'slumber'
 fs=require 'fs'
+uuid=require 'uuid'
 
 class module.exports.ApiBaseHTTP extends ApiBase
   handleOptions: =>
@@ -31,6 +32,15 @@ class module.exports.ApiBaseHTTP extends ApiBase
       if data and data.access_token
         @options.token=data.access_token
 
+    unless @options.sid
+      data=@storage.load 'sid'
+      if data
+        @options.sid=data
+      else
+        sid = uuid.v4()
+        @storage.save "sid",sid
+        @options.sid = sid
+
 
     @options.slumber ?= {}
     @options.slumber.append_slash ?= false
@@ -55,6 +65,13 @@ class module.exports.ApiBaseHTTP extends ApiBase
     if @options.token
       opts['access_token'] = @options.token
     #opts.headers = { 'access_token': @options.token }
+
+    opts['sid'] = @options.sid
+
+    for k of opts
+      unless opts[k]
+        delete opts[k]
+    debug opts
     return opts
 
   fn_wrapper: (fn) =>

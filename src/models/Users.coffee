@@ -3,6 +3,7 @@
 
 BaseModel = require '../BaseModel'
 util = require 'util'
+crypto = require 'crypto'
 
 class Users extends BaseModel
 
@@ -12,8 +13,8 @@ class Users extends BaseModel
    method            : post
    summary         : activate
    description    : 账户激活
-   query            : email,key,password,confirm_password
-   body            : sid
+   query            : email,key,password,confirm_password
+   body            : sid
 
   ###
 
@@ -28,7 +29,7 @@ class Users extends BaseModel
    method            : post
    summary         : generateActivatePhoneCode
    description    : 获取激活账号的手机验证码
-   query            : phone
+   query            : phone
 
   ###
 
@@ -43,8 +44,8 @@ class Users extends BaseModel
    method            : post
    summary         : activatePhone
    description    : 激活用手机注册的用户
-   query            : phone,code,user,email,password
-   body            : sid
+   query            : phone,code,user,email,password
+   body            : sid
 
   ###
 
@@ -73,7 +74,7 @@ class Users extends BaseModel
    method            : post
    summary         : avatar
    description    : 上传设置头像
-   body            : sid
+   body            : sid
 
   ###
 
@@ -88,8 +89,8 @@ class Users extends BaseModel
    method            : get
    summary         : captcha
    description    : 检查是否需要验证码
-   path            : action
-   body            : realRemoteAddress
+   path            : action
+   body            : realRemoteAddress
 
   ###
 
@@ -104,7 +105,7 @@ class Users extends BaseModel
    method            : get
    summary         : changeNoticeSetting
    description    : 修改通知设置
-   query            : settingType,settingContent
+   query            : settingType,settingContent
 
   ###
 
@@ -119,7 +120,7 @@ class Users extends BaseModel
    method            : get
    summary         : checkEmail
    description    : 检查email是否没有被注册过
-   query            : key
+   query            : key
 
   ###
 
@@ -134,7 +135,7 @@ class Users extends BaseModel
    method            : get
    summary         : checkPhone
    description    : 检查手机是否没有被注册过
-   query            : phone
+   query            : phone
 
   ###
 
@@ -149,8 +150,8 @@ class Users extends BaseModel
    method            : post
    summary         : checkTwoFactorAuthCode
    description    : 登录时的两步验证
-   query            : code
-   body            : sid
+   query            : code
+   body            : sid
 
   ###
 
@@ -221,7 +222,7 @@ class Users extends BaseModel
    method            : get
    summary         : getUserByGlobalKey
    description    : 通过个性后缀获取用户信息
-   path            : user
+   path            : user
 
   ###
 
@@ -236,13 +237,18 @@ class Users extends BaseModel
    method            : post
    summary         : login
    description    : 登录
-   query            : email,password,j_captcha,remember_me
-   body            : sid,realRemoteAddress
+   query            : email,password,j_captcha,remember_me
+   body            : sid,realRemoteAddress
 
   ###
 
   login: (params = {}, fn = null) =>
     @debug "Users::login()"
+
+    sha1 = crypto.createHash 'sha1'
+    sha1.update params.password
+    params.password = sha1.digest 'hex'
+
     @post "account/login", params, (data) ->
       fn data if fn
 
@@ -252,7 +258,7 @@ class Users extends BaseModel
    method            : post
    summary         : generateLoginPhoneCode
    description    : 获取登录的手机验证码
-   query            : phone
+   query            : phone
 
   ###
 
@@ -267,8 +273,8 @@ class Users extends BaseModel
    method            : post
    summary         : loginByPhone
    description    : 使用绑定过的手机号码登录
-   query            : phone,code,j_captcha,remember_me
-   body            : realRemoteAddress
+   query            : phone,code,j_captcha,remember_me
+   body            : realRemoteAddress
 
   ###
 
@@ -283,7 +289,7 @@ class Users extends BaseModel
    method            : post
    summary         : logout
    description    : 注销登录
-   body            : sid
+   body            : sid
 
   ###
 
@@ -298,7 +304,7 @@ class Users extends BaseModel
    method            : get
    summary         : getUserByName
    description    : 通过昵称获取用户信息
-   path            : name
+   path            : name
 
   ###
 
@@ -313,8 +319,8 @@ class Users extends BaseModel
    method            : post
    summary         : register
    description    : 注册
-   query            : email,user,j_captcha
-   body            : realRemoteAddress
+   query            : email,user,j_captcha
+   body            : realRemoteAddress
 
   ###
 
@@ -329,7 +335,7 @@ class Users extends BaseModel
    method            : post
    summary         : generateRegisterPhoneCode
    description    : 获取注册的手机验证码
-   query            : phone
+   query            : phone
 
   ###
 
@@ -344,8 +350,8 @@ class Users extends BaseModel
    method            : post
    summary         : phoneRegister
    description    : 使用手机注册
-   query            : phone,code
-   body            : realRemoteAddress
+   query            : phone,code
+   body            : realRemoteAddress
 
   ###
 
@@ -360,8 +366,8 @@ class Users extends BaseModel
    method            : post
    summary         : avatar
    description    : 更新用户信息
-   query            : tags,name,sex,phone,birthday,location,company,slogan,introduction,job,code
-   body            : sid
+   query            : tags,name,sex,phone,birthday,location,company,slogan,introduction,job,code
+   body            : sid
 
   ###
 
@@ -376,8 +382,8 @@ class Users extends BaseModel
    method            : post
    summary         : updatePwd
    description    : 修改用户密码
-   query            : current_password,password,confirm_password
-   body            : sid
+   query            : current_password,password,confirm_password
+   body            : sid
 
   ###
 
@@ -392,8 +398,8 @@ class Users extends BaseModel
    method            : post
    summary         : avatar
    description    : 更新头像
-   query            : avatar
-   body            : sid
+   query            : avatar
+   body            : sid
 
   ###
 
@@ -408,7 +414,7 @@ class Users extends BaseModel
    method            : post
    summary         : follow
    description    : 关注用户
-   query            : users
+   query            : users
 
   ###
 
@@ -423,7 +429,7 @@ class Users extends BaseModel
    method            : get
    summary         : follower
    description    : 关注我的用户
-   query            : page,pageSize
+   query            : page,pageSize
 
   ###
 
@@ -438,8 +444,8 @@ class Users extends BaseModel
    method            : get
    summary         : follower
    description    : 获取关注默认的用户
-   path            : user
-   query            : page,pageSize
+   path            : user
+   query            : page,pageSize
 
   ###
 
@@ -454,7 +460,7 @@ class Users extends BaseModel
    method            : get
    summary         : friends
    description    : 我关注的用户列表
-   query            : page,pageSize
+   query            : page,pageSize
 
   ###
 
@@ -469,8 +475,8 @@ class Users extends BaseModel
    method            : get
    summary         : friends
    description    : 指定用户的关注列表
-   path            : user
-   query            : page,pageSize
+   path            : user
+   query            : page,pageSize
 
   ###
 
@@ -485,7 +491,7 @@ class Users extends BaseModel
    method            : get
    summary         : relationship
    description    : 是否关注了该用户
-   path            : user
+   path            : user
 
   ###
 
@@ -514,7 +520,7 @@ class Users extends BaseModel
    method            : get
    summary         : changeNoticeSetting
    description    : 获取我关注和关注我的用户列表包含成员列表
-   query            : project_id
+   query            : project_id
 
   ###
 
@@ -529,7 +535,7 @@ class Users extends BaseModel
    method            : get
    summary         : search
    description    : 搜索用户
-   query            : key,page,pageSize
+   query            : key,page,pageSize
 
   ###
 
@@ -544,7 +550,7 @@ class Users extends BaseModel
    method            : post
    summary         : unfollow
    description    : 取消关注
-   query            : users
+   query            : users
 
   ###
 
