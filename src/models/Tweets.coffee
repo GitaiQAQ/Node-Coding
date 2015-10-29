@@ -18,7 +18,7 @@ class Tweets extends BaseModel
 
   create: (params = {}, fn = null) =>
     @debug "Tweets::create()"
-    @post "social/tweet", params, (data) ->
+    @post "/api/social/tweet", params, (data) ->
       fn data if fn
 
 
@@ -32,7 +32,7 @@ class Tweets extends BaseModel
 
   bestUser: (fn = null) =>
     @debug "Tweets::bestUser()"
-    @get "social/tweet/best_user", (data) ->
+    @get "/api/social/tweet/best_user", (data) ->
       fn data if fn
 
 
@@ -47,7 +47,7 @@ class Tweets extends BaseModel
 
   comment: (id,fn = null) =>
     @debug "Tweets::comment()"
-    @get "social/tweet/comment/#{id}", (data) ->
+    @get "/api/social/tweet/comment/#{id}", (data) ->
       fn data if fn
 
 
@@ -61,7 +61,7 @@ class Tweets extends BaseModel
 
   image: (fn = null) =>
     @debug "Tweets::image()"
-    @post "social/tweet/insert_image", (data) ->
+    @post "/api/social/tweet/insert_image", (data) ->
       fn data if fn
 
 
@@ -76,7 +76,7 @@ class Tweets extends BaseModel
 
   lastTweetList: (params = {}, fn = null) =>
     @debug "Tweets::lastTweetList()"
-    @get "social/tweet/last", params, (data) ->
+    @get "/api/social/tweet/last", params, (data) ->
       fn data if fn
 
 
@@ -91,7 +91,7 @@ class Tweets extends BaseModel
 
   list: (params = {}, fn = null) =>
     @debug "Tweets::list()"
-    @get "social/tweet/public_tweets", params, (data) ->
+    @get "/api/social/tweet/public_tweets", params, (data) ->
       fn data if fn
 
 
@@ -106,7 +106,7 @@ class Tweets extends BaseModel
 
   userPublic: (params = {}, fn = null) =>
     @debug "Tweets::userPublic()"
-    @get "social/tweet/user_public", params, (data) ->
+    @get "/api/social/tweet/user_public", params, (data) ->
       fn data if fn
 
 
@@ -122,7 +122,7 @@ class Tweets extends BaseModel
 
   detail: (user,tweet_id,params = {}, fn = null) =>
     @debug "Tweets::detail()"
-    @get "social/tweet/#{user}/#{tweet_id}", params, (data) ->
+    @get "/api/social/tweet/#{user}/#{tweet_id}", params, (data) ->
       fn data if fn
 
 
@@ -138,7 +138,7 @@ class Tweets extends BaseModel
 
   comment: (id,params = {}, fn = null) =>
     @debug "Tweets::comment()"
-    @post "social/tweet/#{id}/comment", params, (data) ->
+    @post "/api/social/tweet/#{id}/comment", params, (data) ->
       fn data if fn
 
 
@@ -153,7 +153,7 @@ class Tweets extends BaseModel
 
   comment: (id,comment_id,fn = null) =>
     @debug "Tweets::comment()"
-    @delete "social/tweet/#{id}/comment/#{comment_id}", (data) ->
+    @delete "/api/social/tweet/#{id}/comment/#{comment_id}", (data) ->
       fn data if fn
 
 
@@ -169,7 +169,7 @@ class Tweets extends BaseModel
 
   comment: (id,params = {}, fn = null) =>
     @debug "Tweets::comment()"
-    @get "social/tweet/#{id}/comments", params, (data) ->
+    @get "/api/social/tweet/#{id}/comments", params, (data) ->
       fn data if fn
 
 
@@ -184,7 +184,7 @@ class Tweets extends BaseModel
 
   del: (tweet_id,fn = null) =>
     @debug "Tweets::del()"
-    @delete "social/tweet/#{tweet_id}", (data) ->
+    @delete "/api/social/tweet/#{tweet_id}", (data) ->
       fn data if fn
 
 
@@ -199,7 +199,7 @@ class Tweets extends BaseModel
 
   like: (tweet_id,fn = null) =>
     @debug "Tweets::like()"
-    @post "social/tweet/#{tweet_id}/like", (data) ->
+    @post "/api/social/tweet/#{tweet_id}/like", (data) ->
       fn data if fn
 
 
@@ -215,7 +215,7 @@ class Tweets extends BaseModel
 
   likeTweetList: (tweet_id,params = {}, fn = null) =>
     @debug "Tweets::likeTweetList()"
-    @get "social/tweet/#{tweet_id}/tweetlike", params, (data) ->
+    @get "/api/social/tweet/#{tweet_id}/tweetlike", params, (data) ->
       fn data if fn
 
 
@@ -230,7 +230,7 @@ class Tweets extends BaseModel
 
   unlike: (tweet_id,fn = null) =>
     @debug "Tweets::unlike()"
-    @post "social/tweet/#{tweet_id}/unlike", (data) ->
+    @post "/api/social/tweet/#{tweet_id}/unlike", (data) ->
       fn data if fn
 
 
@@ -245,7 +245,7 @@ class Tweets extends BaseModel
 
   publicTweets: (params = {}, fn = null) =>
     @debug "Tweets::publicTweets()"
-    @get "tweet/public_tweets", params, (data) ->
+    @get "/api/tweet/public_tweets", params, (data) ->
       fn data if fn
 
 

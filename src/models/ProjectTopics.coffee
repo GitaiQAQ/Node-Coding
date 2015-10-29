@@ -19,7 +19,7 @@ class ProjectTopics extends BaseModel
 
   list: (user,project,params = {}, fn = null) =>
     @debug "ProjectTopics::list()"
-    @get "user/#{user}/project/#{project}/topics", params, (data) ->
+    @get "/api/user/#{user}/project/#{project}/topics", params, (data) ->
       fn data if fn
 
 
@@ -35,7 +35,7 @@ class ProjectTopics extends BaseModel
 
   create: (user,project,params = {}, fn = null) =>
     @debug "ProjectTopics::create()"
-    @post "user/#{user}/project/#{project}/topics", params, (data) ->
+    @post "/api/user/#{user}/project/#{project}/topics", params, (data) ->
       fn data if fn
 
 
@@ -50,7 +50,7 @@ class ProjectTopics extends BaseModel
 
   count: (user,project,fn = null) =>
     @debug "ProjectTopics::count()"
-    @get "user/#{user}/project/#{project}/topics/count", (data) ->
+    @get "/api/user/#{user}/project/#{project}/topics/count", (data) ->
       fn data if fn
 
 
@@ -66,7 +66,7 @@ class ProjectTopics extends BaseModel
 
   getProjectTopicByLabel: (user,project,id,params = {}, fn = null) =>
     @debug "ProjectTopics::getProjectTopicByLabel()"
-    @get "user/#{user}/project/#{project}/topics/label/#{id}", params, (data) ->
+    @get "/api/user/#{user}/project/#{project}/topics/label/#{id}", params, (data) ->
       fn data if fn
 
 
@@ -81,7 +81,7 @@ class ProjectTopics extends BaseModel
 
   count: (user,project,fn = null) =>
     @debug "ProjectTopics::count()"
-    @get "user/#{user}/project/#{project}/topics/labels/my", (data) ->
+    @get "/api/user/#{user}/project/#{project}/topics/labels/my", (data) ->
       fn data if fn
 
 
@@ -97,7 +97,7 @@ class ProjectTopics extends BaseModel
 
   list: (user,project,params = {}, fn = null) =>
     @debug "ProjectTopics::list()"
-    @get "user/#{user}/project/#{project}/topics/mine", params, (data) ->
+    @get "/api/user/#{user}/project/#{project}/topics/mine", params, (data) ->
       fn data if fn
 
 
@@ -113,7 +113,7 @@ class ProjectTopics extends BaseModel
 
   watchedProjectTopicList: (user,project,params = {}, fn = null) =>
     @debug "ProjectTopics::watchedProjectTopicList()"
-    @get "user/#{user}/project/#{project}/topics/watching", params, (data) ->
+    @get "/api/user/#{user}/project/#{project}/topics/watching", params, (data) ->
       fn data if fn
 
 
@@ -129,7 +129,7 @@ class ProjectTopics extends BaseModel
 
   detail: (user,project,id,params = {}, fn = null) =>
     @debug "ProjectTopics::detail()"
-    @get "user/#{user}/project/#{project}/topics/#{id}", params, (data) ->
+    @get "/api/user/#{user}/project/#{project}/topics/#{id}", params, (data) ->
       fn data if fn
 
 
@@ -145,7 +145,7 @@ class ProjectTopics extends BaseModel
 
   update: (user,project,id,params = {}, fn = null) =>
     @debug "ProjectTopics::update()"
-    @put "user/#{user}/project/#{project}/topics/#{id}", params, (data) ->
+    @put "/api/user/#{user}/project/#{project}/topics/#{id}", params, (data) ->
       fn data if fn
 
 
@@ -160,7 +160,7 @@ class ProjectTopics extends BaseModel
 
   del: (user,project,id,fn = null) =>
     @debug "ProjectTopics::del()"
-    @delete "user/#{user}/project/#{project}/topics/#{id}", (data) ->
+    @delete "/api/user/#{user}/project/#{project}/topics/#{id}", (data) ->
       fn data if fn
 
 
@@ -176,7 +176,7 @@ class ProjectTopics extends BaseModel
 
   comments: (user,project,id,params = {}, fn = null) =>
     @debug "ProjectTopics::comments()"
-    @get "user/#{user}/project/#{project}/topics/#{id}/comments", params, (data) ->
+    @get "/api/user/#{user}/project/#{project}/topics/#{id}/comments", params, (data) ->
       fn data if fn
 
 
@@ -191,7 +191,7 @@ class ProjectTopics extends BaseModel
 
   addTopicLabel: (user,project,id,labelId,fn = null) =>
     @debug "ProjectTopics::addTopicLabel()"
-    @post "user/#{user}/project/#{project}/topics/#{id}/label/#{labelId}", (data) ->
+    @post "/api/user/#{user}/project/#{project}/topics/#{id}/label/#{labelId}", (data) ->
       fn data if fn
 
 
@@ -206,7 +206,7 @@ class ProjectTopics extends BaseModel
 
   deleteTopicLabel: (user,project,id,labelId,fn = null) =>
     @debug "ProjectTopics::deleteTopicLabel()"
-    @delete "user/#{user}/project/#{project}/topics/#{id}/label/#{labelId}", (data) ->
+    @delete "/api/user/#{user}/project/#{project}/topics/#{id}/label/#{labelId}", (data) ->
       fn data if fn
 
 
@@ -222,7 +222,7 @@ class ProjectTopics extends BaseModel
 
   operateTopicLabel: (user,project,id,params = {}, fn = null) =>
     @debug "ProjectTopics::operateTopicLabel()"
-    @post "user/#{user}/project/#{project}/topics/#{id}/labels", params, (data) ->
+    @post "/api/user/#{user}/project/#{project}/topics/#{id}/labels", params, (data) ->
       fn data if fn
 
 
@@ -237,7 +237,7 @@ class ProjectTopics extends BaseModel
 
   watch: (user,project,id,fn = null) =>
     @debug "ProjectTopics::watch()"
-    @post "user/#{user}/project/#{project}/topics/#{id}/watch", (data) ->
+    @post "/api/user/#{user}/project/#{project}/topics/#{id}/watch", (data) ->
       fn data if fn
 
 
@@ -253,7 +253,7 @@ class ProjectTopics extends BaseModel
 
   watchers: (user,project,id,params = {}, fn = null) =>
     @debug "ProjectTopics::watchers()"
-    @get "user/#{user}/project/#{project}/topics/#{id}/watchers", params, (data) ->
+    @get "/api/user/#{user}/project/#{project}/topics/#{id}/watchers", params, (data) ->
       fn data if fn
 
 

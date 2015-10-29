@@ -19,7 +19,7 @@ class Tags extends BaseModel
 
   list: (user,project,params = {}, fn = null) =>
     @debug "Tags::list()"
-    @get "user/#{user}/project/#{project}/git/tags", params, (data) ->
+    @get "/api/user/#{user}/project/#{project}/git/tags", params, (data) ->
       fn data if fn
 
 
@@ -35,7 +35,7 @@ class Tags extends BaseModel
 
   create: (user,project,params = {}, fn = null) =>
     @debug "Tags::create()"
-    @post "user/#{user}/project/#{project}/git/tags/create", params, (data) ->
+    @post "/api/user/#{user}/project/#{project}/git/tags/create", params, (data) ->
       fn data if fn
 
 
@@ -51,7 +51,7 @@ class Tags extends BaseModel
 
   del: (user,project,params = {}, fn = null) =>
     @debug "Tags::del()"
-    @post "user/#{user}/project/#{project}/git/tags/delete", params, (data) ->
+    @post "/api/user/#{user}/project/#{project}/git/tags/delete", params, (data) ->
       fn data if fn
 
 

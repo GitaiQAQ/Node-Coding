@@ -19,7 +19,7 @@ class Files extends BaseModel
 
   checkExisted: (user,project,dir,params = {}, fn = null) =>
     @debug "Files::checkExisted()"
-    @get "user/#{user}/project/#{project}/dir/#{dir}/files/existed", params, (data) ->
+    @get "/api/user/#{user}/project/#{project}/dir/#{dir}/files/existed", params, (data) ->
       fn data if fn
 
 
@@ -34,7 +34,7 @@ class Files extends BaseModel
 
   uploadNewVersion: (user,project,fn = null) =>
     @debug "Files::uploadNewVersion()"
-    @post "user/#{user}/project/#{project}/file/history/upload", (data) ->
+    @post "/api/user/#{user}/project/#{project}/file/history/upload", (data) ->
       fn data if fn
 
 
@@ -50,7 +50,7 @@ class Files extends BaseModel
 
   view: (user,project,params = {}, fn = null) =>
     @debug "Files::view()"
-    @delete "user/#{user}/project/#{project}/files", params, (data) ->
+    @delete "/api/user/#{user}/project/#{project}/files", params, (data) ->
       fn data if fn
 
 
@@ -65,7 +65,7 @@ class Files extends BaseModel
 
   history: (user,project,id,fn = null) =>
     @debug "Files::history()"
-    @delete "user/#{user}/project/#{project}/files/histories/#{id}", (data) ->
+    @delete "/api/user/#{user}/project/#{project}/files/histories/#{id}", (data) ->
       fn data if fn
 
 
@@ -80,7 +80,7 @@ class Files extends BaseModel
 
   download: (user,project,id,fn = null) =>
     @debug "Files::download()"
-    @get "user/#{user}/project/#{project}/files/histories/#{id}/download", (data) ->
+    @get "/api/user/#{user}/project/#{project}/files/histories/#{id}/download", (data) ->
       fn data if fn
 
 
@@ -95,7 +95,7 @@ class Files extends BaseModel
 
   upload: (user,project,fn = null) =>
     @debug "Files::upload()"
-    @post "user/#{user}/project/#{project}/files/upload", (data) ->
+    @post "/api/user/#{user}/project/#{project}/files/upload", (data) ->
       fn data if fn
 
 
@@ -110,7 +110,7 @@ class Files extends BaseModel
 
   download: (user,project,fileId,fn = null) =>
     @debug "Files::download()"
-    @get "user/#{user}/project/#{project}/files/#{fileId}/download", (data) ->
+    @get "/api/user/#{user}/project/#{project}/files/#{fileId}/download", (data) ->
       fn data if fn
 
 
@@ -125,7 +125,7 @@ class Files extends BaseModel
 
   download: (user,project,fileId,fn = null) =>
     @debug "Files::download()"
-    @get "user/#{user}/project/#{project}/files/#{fileId}/download/url", (data) ->
+    @get "/api/user/#{user}/project/#{project}/files/#{fileId}/download/url", (data) ->
       fn data if fn
 
 
@@ -141,7 +141,7 @@ class Files extends BaseModel
 
   edit: (user,project,fileId,params = {}, fn = null) =>
     @debug "Files::edit()"
-    @post "user/#{user}/project/#{project}/files/#{fileId}/edit", params, (data) ->
+    @post "/api/user/#{user}/project/#{project}/files/#{fileId}/edit", params, (data) ->
       fn data if fn
 
 
@@ -157,7 +157,7 @@ class Files extends BaseModel
 
   view: (user,project,fileId,params = {}, fn = null) =>
     @debug "Files::view()"
-    @get "user/#{user}/project/#{project}/files/#{fileId}/view", params, (data) ->
+    @get "/api/user/#{user}/project/#{project}/files/#{fileId}/view", params, (data) ->
       fn data if fn
 
 
@@ -173,7 +173,7 @@ class Files extends BaseModel
 
   preview: (user,project,fileId,params = {}, fn = null) =>
     @debug "Files::preview()"
-    @get "user/#{user}/project/#{project}/files/#{fileId}/view/image", params, (data) ->
+    @get "/api/user/#{user}/project/#{project}/files/#{fileId}/view/image", params, (data) ->
       fn data if fn
 
 
@@ -189,7 +189,7 @@ class Files extends BaseModel
 
   updateFileRemark: (user,project,file_id,history_id,params = {}, fn = null) =>
     @debug "Files::updateFileRemark()"
-    @post "user/#{user}/project/#{project}/files/#{file_id}/histories/#{history_id}/remark", params, (data) ->
+    @post "/api/user/#{user}/project/#{project}/files/#{file_id}/histories/#{history_id}/remark", params, (data) ->
       fn data if fn
 
 
@@ -205,7 +205,7 @@ class Files extends BaseModel
 
   create: (user,project,folderId,params = {}, fn = null) =>
     @debug "Files::create()"
-    @post "user/#{user}/project/#{project}/files/#{folderId}/files", params, (data) ->
+    @post "/api/user/#{user}/project/#{project}/files/#{folderId}/files", params, (data) ->
       fn data if fn
 
 
@@ -221,7 +221,7 @@ class Files extends BaseModel
 
   history: (user,project,id,params = {}, fn = null) =>
     @debug "Files::history()"
-    @get "user/#{user}/project/#{project}/files/#{id}/histories", params, (data) ->
+    @get "/api/user/#{user}/project/#{project}/files/#{id}/histories", params, (data) ->
       fn data if fn
 
 
@@ -237,7 +237,7 @@ class Files extends BaseModel
 
   mkdir: (user,project,params = {}, fn = null) =>
     @debug "Files::mkdir()"
-    @post "user/#{user}/project/#{project}/folder", params, (data) ->
+    @post "/api/user/#{user}/project/#{project}/folder", params, (data) ->
       fn data if fn
 
 
@@ -252,7 +252,7 @@ class Files extends BaseModel
 
   mkdir: (user,project,fn = null) =>
     @debug "Files::mkdir()"
-    @delete "user/#{user}/project/#{project}/folder", (data) ->
+    @delete "/api/user/#{user}/project/#{project}/folder", (data) ->
       fn data if fn
 
 
@@ -268,7 +268,7 @@ class Files extends BaseModel
 
   move: (user,project,dirId,params = {}, fn = null) =>
     @debug "Files::move()"
-    @put "user/#{user}/project/#{project}/folder/#{dirId}/move", params, (data) ->
+    @put "/api/user/#{user}/project/#{project}/folder/#{dirId}/move", params, (data) ->
       fn data if fn
 
 
@@ -284,7 +284,7 @@ class Files extends BaseModel
 
   renameFolder: (user,project,dir,params = {}, fn = null) =>
     @debug "Files::renameFolder()"
-    @put "user/#{user}/project/#{project}/folder/#{dir}", params, (data) ->
+    @put "/api/user/#{user}/project/#{project}/folder/#{dir}", params, (data) ->
       fn data if fn
 
 
@@ -300,7 +300,7 @@ class Files extends BaseModel
 
   files: (user,project,dir,params = {}, fn = null) =>
     @debug "Files::files()"
-    @get "user/#{user}/project/#{project}/folder/#{dir}/files", params, (data) ->
+    @get "/api/user/#{user}/project/#{project}/folder/#{dir}/files", params, (data) ->
       fn data if fn
 
 
@@ -316,7 +316,7 @@ class Files extends BaseModel
 
   folders: (user,project,params = {}, fn = null) =>
     @debug "Files::folders()"
-    @get "user/#{user}/project/#{project}/folders", params, (data) ->
+    @get "/api/user/#{user}/project/#{project}/folders", params, (data) ->
       fn data if fn
 
 
@@ -332,7 +332,7 @@ class Files extends BaseModel
 
   folders: (user,project,params = {}, fn = null) =>
     @debug "Files::folders()"
-    @get "user/#{user}/project/#{project}/folders/all", params, (data) ->
+    @get "/api/user/#{user}/project/#{project}/folders/all", params, (data) ->
       fn data if fn
 
 
@@ -347,7 +347,7 @@ class Files extends BaseModel
 
   count: (user,project,fn = null) =>
     @debug "Files::count()"
-    @get "user/#{user}/project/#{project}/folders/file_count/all", (data) ->
+    @get "/api/user/#{user}/project/#{project}/folders/file_count/all", (data) ->
       fn data if fn
 
 

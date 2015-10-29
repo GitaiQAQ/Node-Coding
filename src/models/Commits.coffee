@@ -21,7 +21,7 @@ class Commits extends BaseModel
 
   show: (user,project,commit,params = {}, fn = null) =>
     @debug "Commits::show()"
-    @get "user/#{user}/project/#{project}/git/commit/#{commit}", params, (data) ->
+    @get "/api/user/#{user}/project/#{project}/git/commit/#{commit}", params, (data) ->
       fn data if fn
 
 

@@ -20,7 +20,7 @@ class Blobs extends BaseModel
 
   get: (user,project,blob,params = {}, fn = null) =>
     @debug "Blobs::get()"
-    @get "user/#{user}/project/#{project}/git/blob/#{blob}", params, (data) ->
+    @get "/api/user/#{user}/project/#{project}/git/blob/#{blob}", params, (data) ->
       fn data if fn
 
 

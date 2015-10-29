@@ -18,7 +18,7 @@ class Keys extends BaseModel
 
   get: (user,keyId,fn = null) =>
     @debug "Keys::get()"
-    @get "user/#{user}/key/#{keyId}", (data) ->
+    @get "/api/user/#{user}/key/#{keyId}", (data) ->
       fn data if fn
 
 
@@ -33,7 +33,7 @@ class Keys extends BaseModel
 
   key: (user,keyId,fn = null) =>
     @debug "Keys::key()"
-    @delete "user/#{user}/key/#{keyId}", (data) ->
+    @delete "/api/user/#{user}/key/#{keyId}", (data) ->
       fn data if fn
 
 
@@ -49,7 +49,7 @@ class Keys extends BaseModel
 
   list: (user,params = {}, fn = null) =>
     @debug "Keys::list()"
-    @get "user/#{user}/keys", params, (data) ->
+    @get "/api/user/#{user}/keys", params, (data) ->
       fn data if fn
 
 
@@ -65,7 +65,7 @@ class Keys extends BaseModel
 
   create: (user,params = {}, fn = null) =>
     @debug "Keys::create()"
-    @post "user/#{user}/keys", params, (data) ->
+    @post "/api/user/#{user}/keys", params, (data) ->
       fn data if fn
 
 
@@ -80,7 +80,7 @@ class Keys extends BaseModel
 
   webhook: (user,project,id,fn = null) =>
     @debug "Keys::webhook()"
-    @post "user/#{user}/project/#{project}/git/bind_deploy_key/#{id}", (data) ->
+    @post "/api/user/#{user}/project/#{project}/git/bind_deploy_key/#{id}", (data) ->
       fn data if fn
 
 
@@ -96,7 +96,7 @@ class Keys extends BaseModel
 
   webhook: (user,project,params = {}, fn = null) =>
     @debug "Keys::webhook()"
-    @post "user/#{user}/project/#{project}/git/deploy_key", params, (data) ->
+    @post "/api/user/#{user}/project/#{project}/git/deploy_key", params, (data) ->
       fn data if fn
 
 
@@ -111,7 +111,7 @@ class Keys extends BaseModel
 
   list: (user,project,fn = null) =>
     @debug "Keys::list()"
-    @get "user/#{user}/project/#{project}/git/deploy_keys", (data) ->
+    @get "/api/user/#{user}/project/#{project}/git/deploy_keys", (data) ->
       fn data if fn
 
 
@@ -126,7 +126,7 @@ class Keys extends BaseModel
 
   webhook: (user,project,id,fn = null) =>
     @debug "Keys::webhook()"
-    @post "user/#{user}/project/#{project}/git/unbind_deploy_key/#{id}", (data) ->
+    @post "/api/user/#{user}/project/#{project}/git/unbind_deploy_key/#{id}", (data) ->
       fn data if fn
 
 

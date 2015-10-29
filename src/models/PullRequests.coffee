@@ -19,7 +19,7 @@ class PullRequests extends BaseModel
 
   create: (user,project,params = {}, fn = null) =>
     @debug "PullRequests::create()"
-    @get "user/#{user}/project/#{project}/git/pull/create", params, (data) ->
+    @get "/api/user/#{user}/project/#{project}/git/pull/create", params, (data) ->
       fn data if fn
 
 
@@ -35,7 +35,7 @@ class PullRequests extends BaseModel
 
   get: (user,project,iid,params = {}, fn = null) =>
     @debug "PullRequests::get()"
-    @get "user/#{user}/project/#{project}/git/pull/#{iid}", params, (data) ->
+    @get "/api/user/#{user}/project/#{project}/git/pull/#{iid}", params, (data) ->
       fn data if fn
 
 
@@ -50,7 +50,7 @@ class PullRequests extends BaseModel
 
   cancle: (user,project,iid,fn = null) =>
     @debug "PullRequests::cancle()"
-    @post "user/#{user}/project/#{project}/git/pull/#{iid}/cancel", (data) ->
+    @post "/api/user/#{user}/project/#{project}/git/pull/#{iid}/cancel", (data) ->
       fn data if fn
 
 
@@ -65,7 +65,7 @@ class PullRequests extends BaseModel
 
   comments: (user,project,iid,fn = null) =>
     @debug "PullRequests::comments()"
-    @get "user/#{user}/project/#{project}/git/pull/#{iid}/comments", (data) ->
+    @get "/api/user/#{user}/project/#{project}/git/pull/#{iid}/comments", (data) ->
       fn data if fn
 
 
@@ -80,7 +80,7 @@ class PullRequests extends BaseModel
 
   commits: (user,project,iid,fn = null) =>
     @debug "PullRequests::commits()"
-    @get "user/#{user}/project/#{project}/git/pull/#{iid}/commits", (data) ->
+    @get "/api/user/#{user}/project/#{project}/git/pull/#{iid}/commits", (data) ->
       fn data if fn
 
 
@@ -96,7 +96,7 @@ class PullRequests extends BaseModel
 
   merge: (user,project,iid,params = {}, fn = null) =>
     @debug "PullRequests::merge()"
-    @post "user/#{user}/project/#{project}/git/pull/#{iid}/merge", params, (data) ->
+    @post "/api/user/#{user}/project/#{project}/git/pull/#{iid}/merge", params, (data) ->
       fn data if fn
 
 
@@ -111,7 +111,7 @@ class PullRequests extends BaseModel
 
   refuse: (user,project,iid,fn = null) =>
     @debug "PullRequests::refuse()"
-    @post "user/#{user}/project/#{project}/git/pull/#{iid}/refuse", (data) ->
+    @post "/api/user/#{user}/project/#{project}/git/pull/#{iid}/refuse", (data) ->
       fn data if fn
 
 
@@ -127,7 +127,7 @@ class PullRequests extends BaseModel
 
   list: (user,project,status,params = {}, fn = null) =>
     @debug "PullRequests::list()"
-    @get "user/#{user}/project/#{project}/git/pulls/#{status}", params, (data) ->
+    @get "/api/user/#{user}/project/#{project}/git/pulls/#{status}", params, (data) ->
       fn data if fn
 
 

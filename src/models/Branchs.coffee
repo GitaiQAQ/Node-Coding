@@ -19,7 +19,7 @@ class Branchs extends BaseModel
 
   default: (user,project,params = {}, fn = null) =>
     @debug "Branchs::default()"
-    @post "user/#{user}/project/#{project}/git/branch/default", params, (data) ->
+    @post "/api/user/#{user}/project/#{project}/git/branch/default", params, (data) ->
       fn data if fn
 
 
@@ -35,7 +35,7 @@ class Branchs extends BaseModel
 
   listBranches: (user,project,params = {}, fn = null) =>
     @debug "Branchs::listBranches()"
-    @get "user/#{user}/project/#{project}/git/branches", params, (data) ->
+    @get "/api/user/#{user}/project/#{project}/git/branches", params, (data) ->
       fn data if fn
 
 
@@ -51,7 +51,7 @@ class Branchs extends BaseModel
 
   create: (user,project,params = {}, fn = null) =>
     @debug "Branchs::create()"
-    @post "user/#{user}/project/#{project}/git/branches/create", params, (data) ->
+    @post "/api/user/#{user}/project/#{project}/git/branches/create", params, (data) ->
       fn data if fn
 
 
@@ -67,7 +67,7 @@ class Branchs extends BaseModel
 
   del: (user,project,params = {}, fn = null) =>
     @debug "Branchs::del()"
-    @post "user/#{user}/project/#{project}/git/branches/delete", params, (data) ->
+    @post "/api/user/#{user}/project/#{project}/git/branches/delete", params, (data) ->
       fn data if fn
 
 
@@ -83,7 +83,7 @@ class Branchs extends BaseModel
 
   addMember: (user,project,params = {}, fn = null) =>
     @debug "Branchs::addMember()"
-    @post "user/#{user}/project/#{project}/git/branches/protected_branch/add_member", params, (data) ->
+    @post "/api/user/#{user}/project/#{project}/git/branches/protected_branch/add_member", params, (data) ->
       fn data if fn
 
 
@@ -99,7 +99,7 @@ class Branchs extends BaseModel
 
   protectedBranch: (user,project,params = {}, fn = null) =>
     @debug "Branchs::protectedBranch()"
-    @post "user/#{user}/project/#{project}/git/branches/protected_branch/disable", params, (data) ->
+    @post "/api/user/#{user}/project/#{project}/git/branches/protected_branch/disable", params, (data) ->
       fn data if fn
 
 
@@ -115,7 +115,7 @@ class Branchs extends BaseModel
 
   protectedBranch: (user,project,params = {}, fn = null) =>
     @debug "Branchs::protectedBranch()"
-    @post "user/#{user}/project/#{project}/git/branches/protected_branch/enable", params, (data) ->
+    @post "/api/user/#{user}/project/#{project}/git/branches/protected_branch/enable", params, (data) ->
       fn data if fn
 
 
@@ -131,7 +131,7 @@ class Branchs extends BaseModel
 
   members: (user,project,params = {}, fn = null) =>
     @debug "Branchs::members()"
-    @get "user/#{user}/project/#{project}/git/branches/protected_branch/members", params, (data) ->
+    @get "/api/user/#{user}/project/#{project}/git/branches/protected_branch/members", params, (data) ->
       fn data if fn
 
 
@@ -147,7 +147,7 @@ class Branchs extends BaseModel
 
   deleteMember: (user,project,params = {}, fn = null) =>
     @debug "Branchs::deleteMember()"
-    @post "user/#{user}/project/#{project}/git/branches/protected_branch/remove_member", params, (data) ->
+    @post "/api/user/#{user}/project/#{project}/git/branches/protected_branch/remove_member", params, (data) ->
       fn data if fn
 
 

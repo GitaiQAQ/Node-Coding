@@ -20,7 +20,7 @@ class Trees extends BaseModel
 
   webhook: (user,project,tree,params = {}, fn = null) =>
     @debug "Trees::webhook()"
-    @get "user/#{user}/project/#{project}/git/tree/#{tree}", params, (data) ->
+    @get "/api/user/#{user}/project/#{project}/git/tree/#{tree}", params, (data) ->
       fn data if fn
 
 

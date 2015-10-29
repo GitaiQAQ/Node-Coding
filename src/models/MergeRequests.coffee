@@ -19,7 +19,7 @@ class MergeRequests extends BaseModel
 
   create: (user,project,params = {}, fn = null) =>
     @debug "MergeRequests::create()"
-    @post "user/#{user}/project/#{project}/git/merge", params, (data) ->
+    @post "/api/user/#{user}/project/#{project}/git/merge", params, (data) ->
       fn data if fn
 
 
@@ -35,7 +35,7 @@ class MergeRequests extends BaseModel
 
   get: (user,project,iid,params = {}, fn = null) =>
     @debug "MergeRequests::get()"
-    @get "user/#{user}/project/#{project}/git/merge/#{iid}", params, (data) ->
+    @get "/api/user/#{user}/project/#{project}/git/merge/#{iid}", params, (data) ->
       fn data if fn
 
 
@@ -51,7 +51,7 @@ class MergeRequests extends BaseModel
 
   update: (user,project,iid,params = {}, fn = null) =>
     @debug "MergeRequests::update()"
-    @put "user/#{user}/project/#{project}/git/merge/#{iid}", params, (data) ->
+    @put "/api/user/#{user}/project/#{project}/git/merge/#{iid}", params, (data) ->
       fn data if fn
 
 
@@ -66,7 +66,7 @@ class MergeRequests extends BaseModel
 
   cancel: (user,project,iid,fn = null) =>
     @debug "MergeRequests::cancel()"
-    @post "user/#{user}/project/#{project}/git/merge/#{iid}/cancel", (data) ->
+    @post "/api/user/#{user}/project/#{project}/git/merge/#{iid}/cancel", (data) ->
       fn data if fn
 
 
@@ -82,7 +82,7 @@ class MergeRequests extends BaseModel
 
   merge: (user,project,iid,params = {}, fn = null) =>
     @debug "MergeRequests::merge()"
-    @post "user/#{user}/project/#{project}/git/merge/#{iid}/merge", params, (data) ->
+    @post "/api/user/#{user}/project/#{project}/git/merge/#{iid}/merge", params, (data) ->
       fn data if fn
 
 
@@ -97,7 +97,7 @@ class MergeRequests extends BaseModel
 
   refuse: (user,project,iid,fn = null) =>
     @debug "MergeRequests::refuse()"
-    @post "user/#{user}/project/#{project}/git/merge/#{iid}/refuse", (data) ->
+    @post "/api/user/#{user}/project/#{project}/git/merge/#{iid}/refuse", (data) ->
       fn data if fn
 
 
@@ -113,7 +113,7 @@ class MergeRequests extends BaseModel
 
   list: (user,project,status,params = {}, fn = null) =>
     @debug "MergeRequests::list()"
-    @get "user/#{user}/project/#{project}/git/merges/#{status}", params, (data) ->
+    @get "/api/user/#{user}/project/#{project}/git/merges/#{status}", params, (data) ->
       fn data if fn
 
 

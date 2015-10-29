@@ -18,7 +18,7 @@ class Depots extends BaseModel
 
   get: (user,project,fn = null) =>
     @debug "Depots::get()"
-    @get "user/#{user}/project/#{project}/git", (data) ->
+    @get "/api/user/#{user}/project/#{project}/git", (data) ->
       fn data if fn
 
 
@@ -33,7 +33,7 @@ class Depots extends BaseModel
 
   fork: (user,project,fn = null) =>
     @debug "Depots::fork()"
-    @post "user/#{user}/project/#{project}/git/fork", (data) ->
+    @post "/api/user/#{user}/project/#{project}/git/fork", (data) ->
       fn data if fn
 
 
@@ -48,7 +48,7 @@ class Depots extends BaseModel
 
   forkList: (user,project,fn = null) =>
     @debug "Depots::forkList()"
-    @get "user/#{user}/project/#{project}/git/forks", (data) ->
+    @get "/api/user/#{user}/project/#{project}/git/forks", (data) ->
       fn data if fn
 
 
@@ -64,7 +64,7 @@ class Depots extends BaseModel
 
   createWebhook: (user,project,params = {}, fn = null) =>
     @debug "Depots::createWebhook()"
-    @post "user/#{user}/project/#{project}/git/hook", params, (data) ->
+    @post "/api/user/#{user}/project/#{project}/git/hook", params, (data) ->
       fn data if fn
 
 
@@ -79,7 +79,7 @@ class Depots extends BaseModel
 
   getWebhook: (user,project,id,fn = null) =>
     @debug "Depots::getWebhook()"
-    @get "user/#{user}/project/#{project}/git/hook/#{id}", (data) ->
+    @get "/api/user/#{user}/project/#{project}/git/hook/#{id}", (data) ->
       fn data if fn
 
 
@@ -95,7 +95,7 @@ class Depots extends BaseModel
 
   updateWebhook: (user,project,id,params = {}, fn = null) =>
     @debug "Depots::updateWebhook()"
-    @put "user/#{user}/project/#{project}/git/hook/#{id}", params, (data) ->
+    @put "/api/user/#{user}/project/#{project}/git/hook/#{id}", params, (data) ->
       fn data if fn
 
 
@@ -110,7 +110,7 @@ class Depots extends BaseModel
 
   deleteWebhook: (user,project,id,fn = null) =>
     @debug "Depots::deleteWebhook()"
-    @delete "user/#{user}/project/#{project}/git/hook/#{id}", (data) ->
+    @delete "/api/user/#{user}/project/#{project}/git/hook/#{id}", (data) ->
       fn data if fn
 
 
@@ -125,7 +125,7 @@ class Depots extends BaseModel
 
   list: (user,project,fn = null) =>
     @debug "Depots::list()"
-    @get "user/#{user}/project/#{project}/git/hooks", (data) ->
+    @get "/api/user/#{user}/project/#{project}/git/hooks", (data) ->
       fn data if fn
 
 
@@ -141,7 +141,7 @@ class Depots extends BaseModel
 
   importRepo: (user,project,params = {}, fn = null) =>
     @debug "Depots::importRepo()"
-    @get "user/#{user}/project/#{project}/git/import", params, (data) ->
+    @get "/api/user/#{user}/project/#{project}/git/import", params, (data) ->
       fn data if fn
 
 
@@ -157,7 +157,7 @@ class Depots extends BaseModel
 
   importRepo: (user,project,params = {}, fn = null) =>
     @debug "Depots::importRepo()"
-    @post "user/#{user}/project/#{project}/git/import", params, (data) ->
+    @post "/api/user/#{user}/project/#{project}/git/import", params, (data) ->
       fn data if fn
 
 
@@ -173,7 +173,7 @@ class Depots extends BaseModel
 
   initDepot: (user,project,params = {}, fn = null) =>
     @debug "Depots::initDepot()"
-    @post "user/#{user}/project/#{project}/git/init", params, (data) ->
+    @post "/api/user/#{user}/project/#{project}/git/init", params, (data) ->
       fn data if fn
 
 

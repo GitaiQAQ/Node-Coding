@@ -19,7 +19,7 @@ class RepoFiles extends BaseModel
 
   del: (user,project,file,params = {}, fn = null) =>
     @debug "RepoFiles::del()"
-    @get "user/#{user}/project/#{project}/git/delete/#{file}", params, (data) ->
+    @get "/api/user/#{user}/project/#{project}/git/delete/#{file}", params, (data) ->
       fn data if fn
 
 
@@ -35,7 +35,7 @@ class RepoFiles extends BaseModel
 
   update: (user,project,file,params = {}, fn = null) =>
     @debug "RepoFiles::update()"
-    @get "user/#{user}/project/#{project}/git/edit/#{file}", params, (data) ->
+    @get "/api/user/#{user}/project/#{project}/git/edit/#{file}", params, (data) ->
       fn data if fn
 
 
@@ -51,7 +51,7 @@ class RepoFiles extends BaseModel
 
   create: (user,project,file,params = {}, fn = null) =>
     @debug "RepoFiles::create()"
-    @get "user/#{user}/project/#{project}/git/new/#{file}", params, (data) ->
+    @get "/api/user/#{user}/project/#{project}/git/new/#{file}", params, (data) ->
       fn data if fn
 
 

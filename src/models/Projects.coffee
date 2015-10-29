@@ -18,7 +18,7 @@ class Projects extends BaseModel
 
   pinProject: (params = {}, fn = null) =>
     @debug "Projects::pinProject()"
-    @get "account/projects/pin", params, (data) ->
+    @get "/api/account/projects/pin", params, (data) ->
       fn data if fn
 
 
@@ -33,7 +33,7 @@ class Projects extends BaseModel
 
   pinProject: (params = {}, fn = null) =>
     @debug "Projects::pinProject()"
-    @post "account/projects/pin", params, (data) ->
+    @post "/api/account/projects/pin", params, (data) ->
       fn data if fn
 
 
@@ -48,7 +48,7 @@ class Projects extends BaseModel
 
   pinProject: (params = {}, fn = null) =>
     @debug "Projects::pinProject()"
-    @delete "account/projects/pin", params, (data) ->
+    @delete "/api/account/projects/pin", params, (data) ->
       fn data if fn
 
 
@@ -63,7 +63,7 @@ class Projects extends BaseModel
 
   update: (params = {}, fn = null) =>
     @debug "Projects::update()"
-    @put "project", params, (data) ->
+    @put "/api/project", params, (data) ->
       fn data if fn
 
 
@@ -77,7 +77,7 @@ class Projects extends BaseModel
 
   recommendedList: (fn = null) =>
     @debug "Projects::recommendedList()"
-    @get "projects/recommended", (data) ->
+    @get "/api/projects/recommended", (data) ->
       fn data if fn
 
 
@@ -92,7 +92,7 @@ class Projects extends BaseModel
 
   publicProjects: (params = {}, fn = null) =>
     @debug "Projects::publicProjects()"
-    @get "public/all", params, (data) ->
+    @get "/api/public/all", params, (data) ->
       fn data if fn
 
 
@@ -107,7 +107,7 @@ class Projects extends BaseModel
 
   queryByName: (user,project,fn = null) =>
     @debug "Projects::queryByName()"
-    @get "user/#{user}/project/#{project}", (data) ->
+    @get "/api/user/#{user}/project/#{project}", (data) ->
       fn data if fn
 
 
@@ -123,7 +123,7 @@ class Projects extends BaseModel
 
   deleteProject: (user,project,params = {}, fn = null) =>
     @debug "Projects::deleteProject()"
-    @delete "user/#{user}/project/#{project}", params, (data) ->
+    @delete "/api/user/#{user}/project/#{project}", params, (data) ->
       fn data if fn
 
 
@@ -138,7 +138,7 @@ class Projects extends BaseModel
 
   setProjectIcon: (user,project,fn = null) =>
     @debug "Projects::setProjectIcon()"
-    @post "user/#{user}/project/#{project}/project_icon", (data) ->
+    @post "/api/user/#{user}/project/#{project}/project_icon", (data) ->
       fn data if fn
 
 
@@ -153,7 +153,7 @@ class Projects extends BaseModel
 
   star: (user,project,fn = null) =>
     @debug "Projects::star()"
-    @post "user/#{user}/project/#{project}/star", (data) ->
+    @post "/api/user/#{user}/project/#{project}/star", (data) ->
       fn data if fn
 
 
@@ -168,7 +168,7 @@ class Projects extends BaseModel
 
   stared: (user,project,fn = null) =>
     @debug "Projects::stared()"
-    @post "user/#{user}/project/#{project}/stared", (data) ->
+    @post "/api/user/#{user}/project/#{project}/stared", (data) ->
       fn data if fn
 
 
@@ -183,7 +183,7 @@ class Projects extends BaseModel
 
   unstar: (user,project,fn = null) =>
     @debug "Projects::unstar()"
-    @post "user/#{user}/project/#{project}/unstar", (data) ->
+    @post "/api/user/#{user}/project/#{project}/unstar", (data) ->
       fn data if fn
 
 
@@ -198,7 +198,7 @@ class Projects extends BaseModel
 
   unwatch: (user,project,fn = null) =>
     @debug "Projects::unwatch()"
-    @post "user/#{user}/project/#{project}/unwatch", (data) ->
+    @post "/api/user/#{user}/project/#{project}/unwatch", (data) ->
       fn data if fn
 
 
@@ -213,7 +213,7 @@ class Projects extends BaseModel
 
   visitProject: (user,project,fn = null) =>
     @debug "Projects::visitProject()"
-    @get "user/#{user}/project/#{project}/update_visit", (data) ->
+    @get "/api/user/#{user}/project/#{project}/update_visit", (data) ->
       fn data if fn
 
 
@@ -228,7 +228,7 @@ class Projects extends BaseModel
 
   watch: (user,project,fn = null) =>
     @debug "Projects::watch()"
-    @post "user/#{user}/project/#{project}/watch", (data) ->
+    @post "/api/user/#{user}/project/#{project}/watch", (data) ->
       fn data if fn
 
 
@@ -243,7 +243,7 @@ class Projects extends BaseModel
 
   watched: (user,project,fn = null) =>
     @debug "Projects::watched()"
-    @post "user/#{user}/project/#{project}/watched", (data) ->
+    @post "/api/user/#{user}/project/#{project}/watched", (data) ->
       fn data if fn
 
 
@@ -258,7 +258,7 @@ class Projects extends BaseModel
 
   watched: (user,project,fn = null) =>
     @debug "Projects::watched()"
-    @get "user/#{user}/project/#{project}/watchers", (data) ->
+    @get "/api/user/#{user}/project/#{project}/watchers", (data) ->
       fn data if fn
 
 
@@ -273,7 +273,7 @@ class Projects extends BaseModel
 
   projectList: (params = {}, fn = null) =>
     @debug "Projects::projectList()"
-    @get "user/projects", params, (data) ->
+    @get "/api/user/projects", params, (data) ->
       fn data if fn
 
 
@@ -288,7 +288,7 @@ class Projects extends BaseModel
 
   privateProjects: (params = {}, fn = null) =>
     @debug "Projects::privateProjects()"
-    @get "user/projects/private", params, (data) ->
+    @get "/api/user/projects/private", params, (data) ->
       fn data if fn
 
 
@@ -303,7 +303,7 @@ class Projects extends BaseModel
 
   privateProjects: (params = {}, fn = null) =>
     @debug "Projects::privateProjects()"
-    @post "user/projects/private", params, (data) ->
+    @post "/api/user/projects/private", params, (data) ->
       fn data if fn
 
 
@@ -318,7 +318,7 @@ class Projects extends BaseModel
 
   privateProjects: (params = {}, fn = null) =>
     @debug "Projects::privateProjects()"
-    @put "user/projects/private", params, (data) ->
+    @put "/api/user/projects/private", params, (data) ->
       fn data if fn
 
 
@@ -333,7 +333,7 @@ class Projects extends BaseModel
 
   privateProjects: (params = {}, fn = null) =>
     @debug "Projects::privateProjects()"
-    @delete "user/projects/private", params, (data) ->
+    @delete "/api/user/projects/private", params, (data) ->
       fn data if fn
 
 
@@ -348,7 +348,7 @@ class Projects extends BaseModel
 
   privateProjects: (params = {}, fn = null) =>
     @debug "Projects::privateProjects()"
-    @options "user/projects/private", params, (data) ->
+    @options "/api/user/projects/private", params, (data) ->
       fn data if fn
 
 
@@ -363,7 +363,7 @@ class Projects extends BaseModel
 
   privateProjects: (params = {}, fn = null) =>
     @debug "Projects::privateProjects()"
-    @patch "user/projects/private", params, (data) ->
+    @patch "/api/user/projects/private", params, (data) ->
       fn data if fn
 
 
@@ -379,7 +379,7 @@ class Projects extends BaseModel
 
   createProject: (user,params = {}, fn = null) =>
     @debug "Projects::createProject()"
-    @post "user/#{user}/project", params, (data) ->
+    @post "/api/user/#{user}/project", params, (data) ->
       fn data if fn
 
 
@@ -395,7 +395,7 @@ class Projects extends BaseModel
 
   publicProjects: (user,params = {}, fn = null) =>
     @debug "Projects::publicProjects()"
-    @get "user/#{user}/projects/public", params, (data) ->
+    @get "/api/user/#{user}/projects/public", params, (data) ->
       fn data if fn
 
 
@@ -411,7 +411,7 @@ class Projects extends BaseModel
 
   publicProjects: (user,params = {}, fn = null) =>
     @debug "Projects::publicProjects()"
-    @post "user/#{user}/projects/public", params, (data) ->
+    @post "/api/user/#{user}/projects/public", params, (data) ->
       fn data if fn
 
 
@@ -427,7 +427,7 @@ class Projects extends BaseModel
 
   publicProjects: (user,params = {}, fn = null) =>
     @debug "Projects::publicProjects()"
-    @put "user/#{user}/projects/public", params, (data) ->
+    @put "/api/user/#{user}/projects/public", params, (data) ->
       fn data if fn
 
 
@@ -443,7 +443,7 @@ class Projects extends BaseModel
 
   publicProjects: (user,params = {}, fn = null) =>
     @debug "Projects::publicProjects()"
-    @delete "user/#{user}/projects/public", params, (data) ->
+    @delete "/api/user/#{user}/projects/public", params, (data) ->
       fn data if fn
 
 
@@ -459,7 +459,7 @@ class Projects extends BaseModel
 
   publicProjects: (user,params = {}, fn = null) =>
     @debug "Projects::publicProjects()"
-    @options "user/#{user}/projects/public", params, (data) ->
+    @options "/api/user/#{user}/projects/public", params, (data) ->
       fn data if fn
 
 
@@ -475,7 +475,7 @@ class Projects extends BaseModel
 
   publicProjects: (user,params = {}, fn = null) =>
     @debug "Projects::publicProjects()"
-    @patch "user/#{user}/projects/public", params, (data) ->
+    @patch "/api/user/#{user}/projects/public", params, (data) ->
       fn data if fn
 
 

@@ -21,7 +21,7 @@ class Historys extends BaseModel
 
   get: (user,project,commits,params = {}, fn = null) =>
     @debug "Historys::get()"
-    @get "user/#{user}/project/#{project}/git/commits/#{commits}", params, (data) ->
+    @get "/api/user/#{user}/project/#{project}/git/commits/#{commits}", params, (data) ->
       fn data if fn
 
 

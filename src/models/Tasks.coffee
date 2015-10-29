@@ -19,7 +19,7 @@ class Tasks extends BaseModel
 
   create: (project,params = {}, fn = null) =>
     @debug "Tasks::create()"
-    @post "project/#{project}/task", params, (data) ->
+    @post "/api/project/#{project}/task", params, (data) ->
       fn data if fn
 
 
@@ -35,7 +35,7 @@ class Tasks extends BaseModel
 
   create: (project,id,params = {}, fn = null) =>
     @debug "Tasks::create()"
-    @get "project/#{project}/task/#{id}", params, (data) ->
+    @get "/api/project/#{project}/task/#{id}", params, (data) ->
       fn data if fn
 
 
@@ -50,7 +50,7 @@ class Tasks extends BaseModel
 
   del: (project,id,fn = null) =>
     @debug "Tasks::del()"
-    @delete "project/#{project}/task/#{id}", (data) ->
+    @delete "/api/project/#{project}/task/#{id}", (data) ->
       fn data if fn
 
 
@@ -67,7 +67,7 @@ class Tasks extends BaseModel
 
   list: (project,owner,status,params = {}, fn = null) =>
     @debug "Tasks::list()"
-    @get "project/#{project}/tasks/user/#{owner}/#{status}", params, (data) ->
+    @get "/api/project/#{project}/tasks/user/#{owner}/#{status}", params, (data) ->
       fn data if fn
 
 
@@ -81,7 +81,7 @@ class Tasks extends BaseModel
 
   create: (fn = null) =>
     @debug "Tasks::create()"
-    @get "task/creating", (data) ->
+    @get "/api/task/creating", (data) ->
       fn data if fn
 
 
@@ -96,7 +96,7 @@ class Tasks extends BaseModel
 
   count: (user,project,fn = null) =>
     @debug "Tasks::count()"
-    @get "user/#{user}/project/#{project}/task/count", (data) ->
+    @get "/api/user/#{user}/project/#{project}/task/count", (data) ->
       fn data if fn
 
 
@@ -112,7 +112,7 @@ class Tasks extends BaseModel
 
   update: (user,project,id,params = {}, fn = null) =>
     @debug "Tasks::update()"
-    @put "user/#{user}/project/#{project}/task/#{id}", params, (data) ->
+    @put "/api/user/#{user}/project/#{project}/task/#{id}", params, (data) ->
       fn data if fn
 
 
@@ -128,7 +128,7 @@ class Tasks extends BaseModel
 
   createComment: (user,project,id,params = {}, fn = null) =>
     @debug "Tasks::createComment()"
-    @post "user/#{user}/project/#{project}/task/#{id}/comment", params, (data) ->
+    @post "/api/user/#{user}/project/#{project}/task/#{id}/comment", params, (data) ->
       fn data if fn
 
 
@@ -143,7 +143,7 @@ class Tasks extends BaseModel
 
   createComment: (user,project,id,commentId,fn = null) =>
     @debug "Tasks::createComment()"
-    @delete "user/#{user}/project/#{project}/task/#{id}/comment/#{commentId}", (data) ->
+    @delete "/api/user/#{user}/project/#{project}/task/#{id}/comment/#{commentId}", (data) ->
       fn data if fn
 
 
@@ -159,7 +159,7 @@ class Tasks extends BaseModel
 
   comment: (user,project,id,params = {}, fn = null) =>
     @debug "Tasks::comment()"
-    @get "user/#{user}/project/#{project}/task/#{id}/comments", params, (data) ->
+    @get "/api/user/#{user}/project/#{project}/task/#{id}/comments", params, (data) ->
       fn data if fn
 
 
@@ -175,7 +175,7 @@ class Tasks extends BaseModel
 
   update: (user,project,id,params = {}, fn = null) =>
     @debug "Tasks::update()"
-    @put "user/#{user}/project/#{project}/task/#{id}/content", params, (data) ->
+    @put "/api/user/#{user}/project/#{project}/task/#{id}/content", params, (data) ->
       fn data if fn
 
 
@@ -191,7 +191,7 @@ class Tasks extends BaseModel
 
   update: (user,project,id,params = {}, fn = null) =>
     @debug "Tasks::update()"
-    @put "user/#{user}/project/#{project}/task/#{id}/deadline", params, (data) ->
+    @put "/api/user/#{user}/project/#{project}/task/#{id}/deadline", params, (data) ->
       fn data if fn
 
 
@@ -206,7 +206,7 @@ class Tasks extends BaseModel
 
   watch: (user,project,id,fn = null) =>
     @debug "Tasks::watch()"
-    @get "user/#{user}/project/#{project}/task/#{id}/description", (data) ->
+    @get "/api/user/#{user}/project/#{project}/task/#{id}/description", (data) ->
       fn data if fn
 
 
@@ -222,7 +222,7 @@ class Tasks extends BaseModel
 
   update: (user,project,id,params = {}, fn = null) =>
     @debug "Tasks::update()"
-    @put "user/#{user}/project/#{project}/task/#{id}/description", params, (data) ->
+    @put "/api/user/#{user}/project/#{project}/task/#{id}/description", params, (data) ->
       fn data if fn
 
 
@@ -237,7 +237,7 @@ class Tasks extends BaseModel
 
   label: (user,project,id,labelId,fn = null) =>
     @debug "Tasks::label()"
-    @post "user/#{user}/project/#{project}/task/#{id}/label/#{labelId}", (data) ->
+    @post "/api/user/#{user}/project/#{project}/task/#{id}/label/#{labelId}", (data) ->
       fn data if fn
 
 
@@ -252,7 +252,7 @@ class Tasks extends BaseModel
 
   watch: (user,project,id,labelId,fn = null) =>
     @debug "Tasks::watch()"
-    @delete "user/#{user}/project/#{project}/task/#{id}/label/#{labelId}", (data) ->
+    @delete "/api/user/#{user}/project/#{project}/task/#{id}/label/#{labelId}", (data) ->
       fn data if fn
 
 
@@ -268,7 +268,7 @@ class Tasks extends BaseModel
 
   watch: (user,project,id,params = {}, fn = null) =>
     @debug "Tasks::watch()"
-    @post "user/#{user}/project/#{project}/task/#{id}/labels", params, (data) ->
+    @post "/api/user/#{user}/project/#{project}/task/#{id}/labels", params, (data) ->
       fn data if fn
 
 
@@ -284,7 +284,7 @@ class Tasks extends BaseModel
 
   update: (user,project,id,params = {}, fn = null) =>
     @debug "Tasks::update()"
-    @put "user/#{user}/project/#{project}/task/#{id}/owner", params, (data) ->
+    @put "/api/user/#{user}/project/#{project}/task/#{id}/owner", params, (data) ->
       fn data if fn
 
 
@@ -300,7 +300,7 @@ class Tasks extends BaseModel
 
   update: (user,project,id,params = {}, fn = null) =>
     @debug "Tasks::update()"
-    @put "user/#{user}/project/#{project}/task/#{id}/priority", params, (data) ->
+    @put "/api/user/#{user}/project/#{project}/task/#{id}/priority", params, (data) ->
       fn data if fn
 
 
@@ -316,7 +316,7 @@ class Tasks extends BaseModel
 
   update: (user,project,id,params = {}, fn = null) =>
     @debug "Tasks::update()"
-    @put "user/#{user}/project/#{project}/task/#{id}/status", params, (data) ->
+    @put "/api/user/#{user}/project/#{project}/task/#{id}/status", params, (data) ->
       fn data if fn
 
 
@@ -331,7 +331,7 @@ class Tasks extends BaseModel
 
   watch: (user,project,id,fn = null) =>
     @debug "Tasks::watch()"
-    @post "user/#{user}/project/#{project}/task/#{id}/watch", (data) ->
+    @post "/api/user/#{user}/project/#{project}/task/#{id}/watch", (data) ->
       fn data if fn
 
 
@@ -346,7 +346,7 @@ class Tasks extends BaseModel
 
   watch: (user,project,id,fn = null) =>
     @debug "Tasks::watch()"
-    @delete "user/#{user}/project/#{project}/task/#{id}/watch", (data) ->
+    @delete "/api/user/#{user}/project/#{project}/task/#{id}/watch", (data) ->
       fn data if fn
 
 
@@ -362,7 +362,7 @@ class Tasks extends BaseModel
 
   getTaskListByLabel: (user,project,id,params = {}, fn = null) =>
     @debug "Tasks::getTaskListByLabel()"
-    @get "user/#{user}/project/#{project}/task/#{id}/watchers", params, (data) ->
+    @get "/api/user/#{user}/project/#{project}/task/#{id}/watchers", params, (data) ->
       fn data if fn
 
 
@@ -377,7 +377,7 @@ class Tasks extends BaseModel
 
   count: (user,project,fn = null) =>
     @debug "Tasks::count()"
-    @get "user/#{user}/project/#{project}/tasks/count", (data) ->
+    @get "/api/user/#{user}/project/#{project}/tasks/count", (data) ->
       fn data if fn
 
 
@@ -392,7 +392,7 @@ class Tasks extends BaseModel
 
   count: (user,project,fn = null) =>
     @debug "Tasks::count()"
-    @get "user/#{user}/project/#{project}/tasks/count_all", (data) ->
+    @get "/api/user/#{user}/project/#{project}/tasks/count_all", (data) ->
       fn data if fn
 
 
@@ -409,7 +409,7 @@ class Tasks extends BaseModel
 
   getTaskListByLabel: (user,project,id,params = {}, fn = null) =>
     @debug "Tasks::getTaskListByLabel()"
-    @get "user/#{user}/project/#{project}/tasks/label/#{id}", params, (data) ->
+    @get "/api/user/#{user}/project/#{project}/tasks/label/#{id}", params, (data) ->
       fn data if fn
 
 
@@ -425,7 +425,7 @@ class Tasks extends BaseModel
 
   count: (user,project,status,params = {}, fn = null) =>
     @debug "Tasks::count()"
-    @get "user/#{user}/project/#{project}/tasks/my/#{status}", params, (data) ->
+    @get "/api/user/#{user}/project/#{project}/tasks/my/#{status}", params, (data) ->
       fn data if fn
 
 
@@ -442,7 +442,7 @@ class Tasks extends BaseModel
 
   list: (user,project,status,params = {}, fn = null) =>
     @debug "Tasks::list()"
-    @get "user/#{user}/project/#{project}/tasks/#{status}", params, (data) ->
+    @get "/api/user/#{user}/project/#{project}/tasks/#{status}", params, (data) ->
       fn data if fn
 
 
@@ -458,7 +458,7 @@ class Tasks extends BaseModel
 
   count: (user,status,params = {}, fn = null) =>
     @debug "Tasks::count()"
-    @get "user/#{user}/projects/tasks/all/#{status}", params, (data) ->
+    @get "/api/user/#{user}/projects/tasks/all/#{status}", params, (data) ->
       fn data if fn
 
 
